@@ -1,0 +1,43 @@
+#heads-up-display {
+    width: 30%;
+    height: 15%;
+    padding: 1%;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    flex-direction: row;
+}
+
+#health .unity-progress-bar__progress {
+    background-color: rgb(221, 105, 62);
+} 
+
+#mana .unity-progress-bar__progress {
+    background-color: rgb(68, 138, 178);
+}
+
+#experience .unity-progress-bar__progress {
+    background-color: rgb(255, 142, 37);
+}
+
+.unity-progress-bar__title {
+    color: rgb(240, 240, 240);
+    -unity-font-style: bold;
+}
+
+.unity-progress-bar__background {
+    background-color: rgb(68, 68, 68);
+}
+
+#content {
+    flex-grow: 1;
+}
+
+#level {
+    -unity-font-style: bold;
+    font-size: 16px;
+    -unity-text-align: middle-center;
+    width: 20%;
+    color: #D2D2D2;
+}

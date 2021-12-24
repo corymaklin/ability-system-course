@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/StatSystem/UI/HeadsUpDisplay.uss?fileID=7433441132597879392&amp;guid=0f9bdbc506df8ab41850ce9abd776d74&amp;type=3#HeadsUpDisplay" />
+    <ui:VisualElement name="heads-up-display">
+        <ui:Label text="1" display-tooltip-when-elided="true" name="level" />
+        <ui:VisualElement name="content">
+            <ui:ProgressBar title="100 /100" name="health" />
+            <ui:ProgressBar title="100 / 100" name="mana" />
+            <ui:ProgressBar title="100 / 100" name="experience" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

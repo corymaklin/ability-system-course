@@ -1,0 +1,108 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/StatSystem/UI/Stats.uss?fileID=7433441132597879392&amp;guid=e4f7c18ea0396984ea065ed7673c65ac&amp;type=3#Stats" />
+    <ui:VisualElement name="panel" style="width: 25%; padding-left: 1%; padding-right: 1%; padding-top: 1%; padding-bottom: 1%; position: absolute; background-color: rgb(0, 0, 0); top: 168px; left: 343px;">
+        <ui:VisualElement name="level" style="flex-direction: row; justify-content: space-between;">
+            <ui:Label text="Level" display-tooltip-when-elided="true" name="label" style="font-size: 16px;" />
+            <ui:Label text="1" display-tooltip-when-elided="true" name="value" style="font-size: 16px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="experience" style="flex-direction: row; justify-content: space-between;">
+            <ui:Label text="Experience" display-tooltip-when-elided="true" name="label" style="font-size: 16px;" />
+            <ui:Label text="0 / 100" display-tooltip-when-elided="true" name="value" style="font-size: 16px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="attributes">
+            <ui:VisualElement name="health" style="flex-direction: row; justify-content: space-between;">
+                <ui:Label text="Health" display-tooltip-when-elided="true" name="label" style="font-size: 16px;" />
+                <ui:Label text="100 /100" display-tooltip-when-elided="true" name="value" style="font-size: 16px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="mana" style="flex-direction: row; justify-content: space-between;">
+                <ui:Label text="Mana" display-tooltip-when-elided="true" name="label" style="font-size: 16px;" />
+                <ui:Label text="100 / 100" display-tooltip-when-elided="true" name="value" style="font-size: 16px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="separator" style="height: 3%;" />
+        <ui:VisualElement name="primary-stats">
+            <ui:VisualElement name="strength" style="flex-direction: row; justify-content: space-between;">
+                <ui:Label text="Strength" display-tooltip-when-elided="true" name="label" style="font-size: 16px;" />
+                <ui:VisualElement name="content" style="flex-direction: row;">
+                    <ui:Label text="1" display-tooltip-when-elided="true" name="value" style="font-size: 16px;" />
+                    <ui:Button text="+" display-tooltip-when-elided="true" name="increment-button" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="charisma" style="flex-direction: row; justify-content: space-between;">
+                <ui:Label text="Charisma" display-tooltip-when-elided="true" name="label" style="font-size: 16px;" />
+                <ui:VisualElement name="content" style="flex-direction: row;">
+                    <ui:Label text="1" display-tooltip-when-elided="true" name="value" style="font-size: 16px;" />
+                    <ui:Button text="+" display-tooltip-when-elided="true" name="increment-button" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="wisdom" style="flex-direction: row; justify-content: space-between;">
+                <ui:Label text="Wisdom" display-tooltip-when-elided="true" name="label" style="font-size: 16px;" />
+                <ui:VisualElement name="content" style="flex-direction: row;">
+                    <ui:Label text="1" display-tooltip-when-elided="true" name="value" style="font-size: 16px;" />
+                    <ui:Button text="+" display-tooltip-when-elided="true" name="increment-button" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="intelligence" style="flex-direction: row; justify-content: space-between;">
+                <ui:Label text="Intelligence" display-tooltip-when-elided="true" name="label" style="font-size: 16px;" />
+                <ui:VisualElement name="content" style="flex-direction: row;">
+                    <ui:Label text="1" display-tooltip-when-elided="true" name="value" style="font-size: 16px;" />
+                    <ui:Button text="+" display-tooltip-when-elided="true" name="increment-button" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="dexterity" style="flex-direction: row; justify-content: space-between;">
+                <ui:Label text="Dexterity" display-tooltip-when-elided="true" name="label" style="font-size: 16px;" />
+                <ui:VisualElement name="content" style="flex-direction: row;">
+                    <ui:Label text="1" display-tooltip-when-elided="true" name="value" style="font-size: 16px;" />
+                    <ui:Button text="+" display-tooltip-when-elided="true" name="increment-button" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="charisma" style="flex-direction: row; justify-content: space-between;">
+                <ui:Label text="Charisma" display-tooltip-when-elided="true" name="label" style="font-size: 16px;" />
+                <ui:VisualElement name="content" style="flex-direction: row;">
+                    <ui:Label text="1" display-tooltip-when-elided="true" name="value" style="font-size: 16px;" />
+                    <ui:Button text="+" display-tooltip-when-elided="true" name="increment-button" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="separator" style="height: 3%;" />
+        <ui:VisualElement name="stats">
+            <ui:VisualElement name="physical-attack" style="flex-direction: row; justify-content: space-between;">
+                <ui:Label text="Physical Attack" display-tooltip-when-elided="true" name="label" style="font-size: 16px;" />
+                <ui:Label text="1" display-tooltip-when-elided="true" name="value" style="font-size: 16px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="magical-attack" style="flex-direction: row; justify-content: space-between;">
+                <ui:Label text="Magical Attack" display-tooltip-when-elided="true" name="label" style="font-size: 16px;" />
+                <ui:Label text="1" display-tooltip-when-elided="true" name="value" style="font-size: 16px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="physical-defense" style="flex-direction: row; justify-content: space-between;">
+                <ui:Label text="Physical Defense" display-tooltip-when-elided="true" name="label" style="font-size: 16px;" />
+                <ui:Label text="1" display-tooltip-when-elided="true" name="value" style="font-size: 16px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="magical-defense" style="flex-direction: row; justify-content: space-between;">
+                <ui:Label text="Magical Defense" display-tooltip-when-elided="true" name="label" style="font-size: 16px;" />
+                <ui:Label text="1" display-tooltip-when-elided="true" name="value" style="font-size: 16px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="movement-speed" style="flex-direction: row; justify-content: space-between;">
+                <ui:Label text="Movement Speed" display-tooltip-when-elided="true" name="label" style="font-size: 16px;" />
+                <ui:Label text="1" display-tooltip-when-elided="true" name="value" style="font-size: 16px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="attack-speed" style="flex-direction: row; justify-content: space-between;">
+                <ui:Label text="Attack Speed" display-tooltip-when-elided="true" name="label" style="font-size: 16px;" />
+                <ui:Label text="1" display-tooltip-when-elided="true" name="value" style="font-size: 16px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="critical-hit-chance" style="flex-direction: row; justify-content: space-between;">
+                <ui:Label text="Critical Hit Chance" display-tooltip-when-elided="true" name="label" style="font-size: 16px;" />
+                <ui:Label text="1" display-tooltip-when-elided="true" name="value" style="font-size: 16px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="critical-hit-multiplier" style="flex-direction: row; justify-content: space-between;">
+                <ui:Label text="Critical Hit Multiplier" display-tooltip-when-elided="true" name="label" style="font-size: 16px;" />
+                <ui:Label text="1" display-tooltip-when-elided="true" name="value" style="font-size: 16px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="separator" style="height: 3%;" />
+        <ui:VisualElement name="stat-points" style="flex-direction: row; justify-content: space-between;">
+            <ui:Label text="Stat Points" display-tooltip-when-elided="true" name="label" style="font-size: 16px;" />
+            <ui:Label text="0" display-tooltip-when-elided="true" name="value" style="font-size: 16px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

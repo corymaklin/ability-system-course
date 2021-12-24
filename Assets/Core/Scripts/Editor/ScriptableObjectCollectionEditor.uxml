@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Core.Editor.SplitView fixed-pane-initial-dimension="200">
+        <ui:VisualElement name="left-panel" style="flex-grow: 0;">
+            <uie:Toolbar style="justify-content: space-between;">
+                <uie:ToolbarSearchField focusable="true" style="width: 60%;" />
+                <ui:Button text="Create" display-tooltip-when-elided="true" name="create-button" />
+            </uie:Toolbar>
+            <ui:ListView focusable="true" fixed-item-height="16" style="flex-grow: 1;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="right-panel" style="flex-grow: 1;">
+            <uie:PropertyField name="name-field" binding-path="m_Name" />
+            <Core.Editor.Inspector style="flex-grow: 1;" />
+        </ui:VisualElement>
+    </Core.Editor.SplitView>
+</ui:UXML>

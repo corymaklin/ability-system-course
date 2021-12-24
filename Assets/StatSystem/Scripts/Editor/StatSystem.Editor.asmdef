@@ -1,0 +1,18 @@
+{
+    "name": "StatSystem.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:53fde695a805bd343831eaac2b9819c0",
+        "GUID:b8b7bc65d55b51745a356b3f86f1eee0",
+        "GUID:783731ba12ec48d4a8043a554e3a78b3"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
