@@ -1,4 +1,5 @@
 ﻿using Core.Nodes;
+using UnityEngine;
 
 namespace LevelSystem.Nodes
 {
@@ -6,5 +7,10 @@ namespace LevelSystem.Nodes
     {
         public ILevelable levelable;
         public override float value => levelable.level;
+        public override float CalculateValue(GameObject source)
+        {
+            ILevelable levelable = source.GetComponent<ILevelable>();
+            return levelable.level;
+        }
     }
 }

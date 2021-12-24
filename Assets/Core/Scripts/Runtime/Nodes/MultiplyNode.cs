@@ -9,6 +9,11 @@ namespace Core.Nodes
         [HideInInspector] public CodeFunctionNode factorA;
         [HideInInspector] public CodeFunctionNode factorB;
         public override float value => factorA.value * factorB.value;
+        public override float CalculateValue(GameObject source)
+        {
+            return factorA.CalculateValue(source) * factorB.CalculateValue(source);
+        }
+
         public override void RemoveChild(CodeFunctionNode child, string portName)
         {
             if (portName.Equals("A"))

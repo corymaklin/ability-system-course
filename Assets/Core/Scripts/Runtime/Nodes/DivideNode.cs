@@ -9,6 +9,11 @@ namespace Core.Nodes
         [HideInInspector] public CodeFunctionNode dividend;
         [HideInInspector] public CodeFunctionNode divisor;
         public override float value => dividend.value / divisor.value;
+        public override float CalculateValue(GameObject source)
+        {
+            return dividend.CalculateValue(source) / divisor.CalculateValue(source);
+        }
+
         public override void RemoveChild(CodeFunctionNode child, string portName)
         {
             if (portName.Equals("A"))

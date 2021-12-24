@@ -10,6 +10,11 @@ namespace Core.Nodes
         [HideInInspector] public CodeFunctionNode exponent;
         [HideInInspector] public CodeFunctionNode @base;
         public override float value => (float)Math.Pow(@base.value, exponent.value);
+        public override float CalculateValue(GameObject source)
+        {
+            return (float)Math.Pow(@base.CalculateValue(source), exponent.CalculateValue(source));
+        }
+
         public override void RemoveChild(CodeFunctionNode child, string portName)
         {
             if (portName.Equals("A"))
