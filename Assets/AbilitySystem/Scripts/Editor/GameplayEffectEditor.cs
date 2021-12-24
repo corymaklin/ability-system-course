@@ -20,7 +20,7 @@ namespace AbilitySystem
             return root;
         }
 
-        private VisualElement CreateApplicationFieldsGUI()
+        protected VisualElement CreateApplicationFieldsGUI()
         {
             VisualElement root = new VisualElement();
             ListView modifiers = new ListView
