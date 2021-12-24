@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace AbilitySystem
 {
+    [EffectType(typeof(GameplayPersistentEffect))]
     [CreateAssetMenu(fileName = "GameplayPersistentEffect", menuName = "AbilitySystem/Effect/GameplayPersistentEffect", order = 0)]
     public class GameplayPersistentEffectDefinition : GameplayEffectDefinition
     {

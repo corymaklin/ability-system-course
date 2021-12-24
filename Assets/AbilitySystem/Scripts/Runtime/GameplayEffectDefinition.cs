@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace AbilitySystem.Scripts.Runtime
 {
+    [EffectType(typeof(GameplayEffect))]
     [CreateAssetMenu(fileName = "GameplayEffect", menuName = "AbilitySystem/Effect/GameplayEffect", order = 0)]
     public class GameplayEffectDefinition : ScriptableObject
     {

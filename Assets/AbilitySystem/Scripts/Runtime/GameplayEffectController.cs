@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using StatSystem;
 using UnityEngine;
 using Attribute = StatSystem.Attribute;
@@ -13,7 +14,10 @@ namespace AbilitySystem.Scripts.Runtime
         public ReadOnlyCollection<GameplayPersistentEffect> activeEffects => m_ActiveEffects.AsReadOnly();
         protected StatController m_StatController;
 
-
+        [SerializeField] private List<GameplayEffectDefinition> m_StartEffectDefinitions;
+        public event Action initialized;
+        private bool m_IsInitialized;
+        public bool isInitialized => m_IsInitialized;
         private void Update()
         {
             HandleDuration();
@@ -22,6 +26,35 @@ namespace AbilitySystem.Scripts.Runtime
         private void Awake()
         {
             m_StatController = GetComponent<StatController>();
+        }
+
+        private void OnEnable()
+        {
+            m_StatController.initialized += OnStatControllerInitialized;
+            if (m_StatController.isInitialized)
+            {
+                OnStatControllerInitialized();
+            }
+        }
+
+        private void OnStatControllerInitialized()
+        {
+            Initialize();
+        }
+
+        private void Initialize()
+        {
+            foreach (GameplayEffectDefinition effectDefinition in m_StartEffectDefinitions)
+            {
+                EffectTypeAttribute attribute = effectDefinition.GetType().GetCustomAttributes(true)
+                    .OfType<EffectTypeAttribute>().FirstOrDefault();
+                
+                GameplayEffect effect = Activator.CreateInstance(attribute.type, effectDefinition, m_StartEffectDefinitions, gameObject) as GameplayEffect;
+                ApplyGameplayEffectToSelf(effect);
+            }
+
+            m_IsInitialized = true;
+            initialized?.Invoke();
         }
 
         public void ApplyGameplayEffectToSelf(GameplayEffect effectToApply)
