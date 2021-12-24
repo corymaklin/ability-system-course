@@ -7,6 +7,6 @@ namespace Core
         bool isCriticalHit { get; }
         int magnitude { get; }
         GameObject instigator { get; }
-        Object source { get; }
+        object source { get; }
     }
 }

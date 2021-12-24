@@ -34,10 +34,13 @@ namespace StatSystem
             CalculateValue();
         }
 
-        public void RemoveModifierFromSource(Object source)
+        public void RemoveModifierFromSource(object source)
         {
-            m_Modifiers = m_Modifiers.Where(m => m.source.GetInstanceID() != source.GetInstanceID()).ToList();
-            CalculateValue();
+            int num = m_Modifiers.RemoveAll(modifier => modifier.source == source);
+            if (num > 0)
+            {
+                CalculateValue();   
+            }
         }
 
         internal void CalculateValue()

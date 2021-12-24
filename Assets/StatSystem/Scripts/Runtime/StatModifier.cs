@@ -11,7 +11,7 @@ namespace StatSystem
     
     public class StatModifier
     {
-        public Object source { get; set; }
+        public object source { get; set; }
         public int magnitude { get; set; }
         public ModifierOperationType type { get; set; }
     }
