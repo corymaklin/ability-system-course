@@ -47,5 +47,37 @@ namespace AbilitySystem.Tests.Scripts.Runtime
             effectController.ApplyGameplayEffectToSelf(damageEffect);
             Assert.AreEqual(90, health.currentValue);
         }
+
+        [UnityTest]
+        public IEnumerator GameplayEffectController_WhenPersistentEffectApplied_AddStatModifier()
+        {
+            yield return null;
+            GameplayEffectController effectController = m_Player.GetComponent<GameplayEffectController>();
+            StatController statController = m_Player.GetComponent<StatController>();
+            GameplayPersistentEffectDefinition testEffectDefinition =
+                AssetDatabase.LoadAssetAtPath<GameplayPersistentEffectDefinition>(
+                    "Assets/AbilitySystem/Tests/ScriptableObjects/WhenPersistentEffectApplied_AddStatModifier/GameplayPersistentEffect.asset");
+            GameplayPersistentEffect testEffect = new GameplayPersistentEffect(testEffectDefinition, null, m_Player);
+            Stat intelligence = statController.stats["Intelligence"];
+            Assert.AreEqual(1, intelligence.value);
+            effectController.ApplyGameplayEffectToSelf(testEffect);
+            Assert.AreEqual(4, intelligence.value);
+        }
+
+        [UnityTest]
+        public IEnumerator GameplayEffectController_WhenPersistentEffectExpires_RemoveStatModifier()
+        {
+            GameplayEffectController effectController = m_Player.GetComponent<GameplayEffectController>();
+            StatController statController = m_Player.GetComponent<StatController>();
+            GameplayPersistentEffectDefinition testEffectDefinition =
+                AssetDatabase.LoadAssetAtPath<GameplayPersistentEffectDefinition>(
+                    "Assets/AbilitySystem/Tests/ScriptableObjects/WhenPersistentEffectExpires_RemoveStatModifier/GameplayPersistentEffect.asset");
+            GameplayPersistentEffect testEffect = new GameplayPersistentEffect(testEffectDefinition, null, m_Player);
+            Stat intelligence = statController.stats["Intelligence"];
+            effectController.ApplyGameplayEffectToSelf(testEffect);
+            Assert.AreEqual(4, intelligence.value);
+            yield return new WaitForSeconds(3f);
+            Assert.AreEqual(1, intelligence.value);
+        }
     }
 }
