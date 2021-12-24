@@ -79,5 +79,14 @@ namespace AbilitySystem.Tests.Scripts.Runtime
             yield return new WaitForSeconds(3f);
             Assert.AreEqual(1, intelligence.value);
         }
+
+        [UnityTest]
+        public IEnumerator GameplayEffectController_WhenStart_AppliesStartingEffects()
+        {
+            yield return null;
+            StatController statController = m_Player.GetComponent<StatController>();
+            Stat dexterity = statController.stats["Dexterity"];
+            Assert.AreEqual(4, dexterity.value);
+        }
     }
 }
