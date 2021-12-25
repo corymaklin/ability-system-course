@@ -22,7 +22,7 @@ namespace AbilitySystem
             return root;
         }
 
-        private void RegisterCallbacks(VisualElement root)
+        protected void RegisterCallbacks(VisualElement root)
         {
             GameplayPersistentEffectDefinition definition = target as GameplayPersistentEffectDefinition;
 
@@ -45,7 +45,7 @@ namespace AbilitySystem
             });
         }
 
-        private VisualElement CreateDurationFieldsGUI()
+        protected VisualElement CreateDurationFieldsGUI()
         {
             VisualElement root = new VisualElement();
             
@@ -55,7 +55,7 @@ namespace AbilitySystem
             return root;
         }
         
-        private VisualElement CreatePeriodFieldsGUI()
+        protected VisualElement CreatePeriodFieldsGUI()
         {
             VisualElement root = new VisualElement();
 
@@ -78,7 +78,7 @@ namespace AbilitySystem
             return root;
         }
         
-        private VisualElement CreateTagFieldsGUI()
+        protected virtual VisualElement CreateTagFieldsGUI()
         {
             VisualElement root = new VisualElement();
             root.Add(new PropertyField(serializedObject.FindProperty("m_GrantedTags")));

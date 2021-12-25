@@ -63,11 +63,65 @@ namespace AbilitySystem
             initialized?.Invoke();
         }
 
-        public void ApplyGameplayEffectToSelf(GameplayEffect effectToApply)
+        public bool ApplyGameplayEffectToSelf(GameplayEffect effectToApply)
         {
+            bool isAdded = true;
+            if (effectToApply is GameplayStackableEffect stackableEffect)
+            {
+                GameplayStackableEffect existingStackableEffect = m_ActiveEffects.Find(activeEffect => activeEffect.definition == effectToApply.definition) as GameplayStackableEffect;
+
+                if (existingStackableEffect != null)
+                {
+                    isAdded = false;
+
+                    if (existingStackableEffect.stackCount == existingStackableEffect.definition.stackLimitCount)
+                    {
+                        foreach (GameplayEffectDefinition effectDefinition in existingStackableEffect.definition.overflowEffects)
+                        {
+                            EffectTypeAttribute attribute = effectDefinition.GetType().GetCustomAttributes(true)
+                                .OfType<EffectTypeAttribute>().FirstOrDefault();
+                            GameplayEffect overflowEffect = Activator.CreateInstance(attribute.type, effectDefinition, existingStackableEffect, gameObject) as GameplayEffect;
+                            ApplyGameplayEffectToSelf(overflowEffect);
+                        }
+
+                        if (existingStackableEffect.definition.clearStackOnOverflow)
+                        {
+                            RemoveActiveGameplayEffect(existingStackableEffect, true);
+                            isAdded = true;
+                        }
+
+                        if (existingStackableEffect.definition.denyOverflowApplication)
+                        {
+                            Debug.Log("Denied overflow application!");
+                            return false;
+                        }
+                    }
+
+                    if (!isAdded)
+                    {
+                        existingStackableEffect.stackCount =
+                            Math.Min(existingStackableEffect.stackCount + stackableEffect.stackCount,
+                                existingStackableEffect.definition.stackLimitCount);
+
+                        if (existingStackableEffect.definition.stackDurationRefreshPolicy ==
+                            GameplayEffectStackingDurationPolicy.RefreshOnSuccessfulApplication)
+                        {
+                            existingStackableEffect.remainingDuration = existingStackableEffect.duration;
+                        }
+
+                        if (existingStackableEffect.definition.stackPeriodResetPolicy ==
+                            GameplayEffectStackingPeriodPolicy.ResetOnSuccessfulApplication)
+                        {
+                            existingStackableEffect.remainingPeriod = existingStackableEffect.definition.period;
+                        }
+                    }
+                }
+            }
+            
             if (effectToApply is GameplayPersistentEffect persistentEffect)
             {
-                AddGameplayEffect(persistentEffect);
+                if (isAdded)
+                    AddGameplayEffect(persistentEffect);
             }
             else
             {
@@ -76,6 +130,8 @@ namespace AbilitySystem
             
             if (effectToApply.definition.specialEffectDefinition != null)
                 PlaySpecialEffect(effectToApply);
+
+            return true;
         }
 
         private void AddGameplayEffect(GameplayPersistentEffect effect)
@@ -172,7 +228,26 @@ namespace AbilitySystem
                     activeEffect.remainingDuration = Math.Max(activeEffect.remainingDuration - Time.deltaTime, 0f);
                     if (Mathf.Approximately(activeEffect.remainingDuration, 0f))
                     {
-                        effectsToRemove.Add(activeEffect);
+                        if (activeEffect is GameplayStackableEffect stackableEffect)
+                        {
+                            switch (stackableEffect.definition.stackExpirationPolicy)
+                            {
+                                case GameplayEffectStackingExpirationPolicy.RemoveSingleStackAndRefreshDuration:
+                                    stackableEffect.stackCount--;
+                                    if (stackableEffect.stackCount == 0)
+                                        effectsToRemove.Add(stackableEffect);
+                                    else
+                                        activeEffect.remainingDuration = activeEffect.duration;
+                                    break;
+                                case GameplayEffectStackingExpirationPolicy.NeverRefresh:
+                                    effectsToRemove.Add(stackableEffect);
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            effectsToRemove.Add(activeEffect);
+                        }
                     }
                 }
             }
