@@ -76,3 +76,5 @@ MonoBehaviour:
   m_AbilityDefinitions:
   - {fileID: 11400000, guid: ac1d1db523bad9b4994aa7750f90f890, type: 2}
   - {fileID: 11400000, guid: 35621daf971431c438b50411eaadf879, type: 2}
+  - {fileID: 11400000, guid: 704b1a3c5e7b558499e2d8552170e87c, type: 2}
+  target: {fileID: 0}

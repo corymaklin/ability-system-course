@@ -51,5 +51,31 @@ namespace AbilitySystem.Tests.Scripts.Runtime
             abilityController.TryActivateAbility("SingleTargetAbility", m_Enemy);
             Assert.AreEqual(95, health.currentValue);
         }
+        
+        [UnityTest]
+        public IEnumerator AbilityController_WhenActivateAbility_ApplyCostEffect()
+        {
+            yield return null;
+            AbilityController abilityController = m_Player.GetComponent<AbilityController>();
+            StatController statController = m_Player.GetComponent<StatController>();
+            Attribute mana = statController.stats["Mana"] as Attribute;
+            Assert.AreEqual(100, mana.currentValue);
+            abilityController.TryActivateAbility("AbilityWithCost", m_Enemy);
+            Assert.AreEqual(50, mana.currentValue);
+        }
+        
+        [UnityTest]
+        public IEnumerator AbilityController_WhenCannotSatisfyAbilityCost_BlockAbilityActivation()
+        {
+            yield return null;
+            AbilityController abilityController = m_Player.GetComponent<AbilityController>();
+            StatController statController = m_Player.GetComponent<StatController>();
+            Attribute mana = statController.stats["Mana"] as Attribute;
+            Assert.AreEqual(100, mana.currentValue);
+            Assert.IsTrue(abilityController.TryActivateAbility("AbilityWithCost", m_Enemy));
+            Assert.IsTrue(abilityController.TryActivateAbility("AbilityWithCost", m_Enemy));
+            Assert.AreEqual(0, mana.currentValue);
+            Assert.IsFalse(abilityController.TryActivateAbility("AbilityWithCost", m_Enemy));
+        }
     }
 }
