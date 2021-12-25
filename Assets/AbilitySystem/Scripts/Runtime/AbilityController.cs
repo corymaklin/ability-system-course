@@ -54,5 +54,23 @@ namespace AbilitySystem
                 }
             }
         }
+
+        public bool TryActivateAbility(string abilityName, GameObject target)
+        {
+            if (m_Abilities.TryGetValue(abilityName, out Ability ability))
+            {
+                if (ability is ActiveAbility activeAbility)
+                {
+                    if (ability is SingleTargetAbility singleTargetAbility)
+                    {
+                        singleTargetAbility.Cast(target);
+                    }
+
+                    return true;
+                }
+            }
+            Debug.Log($"Ability with name {abilityName} not found!");
+            return false;
+        }
     }
 }
