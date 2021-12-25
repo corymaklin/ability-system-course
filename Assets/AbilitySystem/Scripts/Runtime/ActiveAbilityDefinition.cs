@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using AbilitySystem.Scripts.Runtime;
+using UnityEngine;
 
 namespace AbilitySystem
 {
@@ -7,5 +8,7 @@ namespace AbilitySystem
         [SerializeField] protected string m_AnimationName;
         public string animationName => m_AnimationName;
 
+        [SerializeField] protected GameplayEffectDefinition m_Cost;
+        public GameplayEffectDefinition cost => m_Cost;
     }
 }

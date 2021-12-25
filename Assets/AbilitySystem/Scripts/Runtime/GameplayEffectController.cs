@@ -138,5 +138,43 @@ namespace AbilitySystem.Scripts.Runtime
                 RemoveActiveGameplayEffect(effect, false);
             }
         }
+
+        public bool CanApplyAttributeModifiers(GameplayEffectDefinition effectDefinition)
+        {
+            foreach (var modifierDefinition in effectDefinition.modifierDefinitions)
+            {
+                if (m_StatController.stats.TryGetValue(modifierDefinition.statName, out Stat stat))
+                {
+                    if (stat is Attribute attribute)
+                    {
+                        if (modifierDefinition.type == ModifierOperationType.Additive)
+                        {
+                            if (attribute.currentValue <
+                                Mathf.Abs(modifierDefinition.formula.CalculateValue(gameObject)))
+                            {
+                                Debug.Log($"{effectDefinition.name} cannot satisfy costs!");
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            Debug.LogWarning("Only addition is supported!");
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"{modifierDefinition.statName} is not an attribute!");
+                        return false;
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning($"{modifierDefinition.statName} not found!");
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

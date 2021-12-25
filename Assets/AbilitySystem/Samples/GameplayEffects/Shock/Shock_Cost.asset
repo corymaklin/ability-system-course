@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8877d092bdf04acfa85d310fb96a1fd0, type: 3}
+  m_Name: Shock_Cost
+  m_EditorClassIdentifier: 
+  m_ModifierDefinitions:
+  - {fileID: 823810536049830076}
+--- !u!114 &823810536049830076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a6bf6f6de2403b812ddff9c278c628, type: 3}
+  m_Name: Modifier
+  m_EditorClassIdentifier: 
+  m_Formula: {fileID: 11400000, guid: 3e55bba4f9e5e6740a4f87b23a5a2bd5, type: 2}
+  m_StatName: Mana
+  m_Type: 0

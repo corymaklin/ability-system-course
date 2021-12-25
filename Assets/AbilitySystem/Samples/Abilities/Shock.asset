@@ -15,3 +15,4 @@ MonoBehaviour:
   m_GameplayEffectDefinitions:
   - {fileID: 11400000, guid: 60c891fd8ddab8b448d882cbd1948780, type: 2}
   m_AnimationName: Cast
+  m_Cost: {fileID: 11400000, guid: 35308ca5e4045fe48bb35457cc9a331c, type: 2}

@@ -64,14 +64,28 @@ namespace AbilitySystem
             {
                 if (ability is ActiveAbility activeAbility)
                 {
+                    if (!CanActivateAbility(activeAbility))
+                        return false;
                     this.target = target;
                     currentAbility = activeAbility;
+                    CommitAbility(activeAbility);
                     activatedAbility?.Invoke(activeAbility);
                     return true;
                 }
             }
             Debug.Log($"Ability with name {abilityName} not found!");
             return false;
+        }
+
+        public bool CanActivateAbility(ActiveAbility ability)
+        {
+            if (ability.definition.cost != null)
+                return m_EffectController.CanApplyAttributeModifiers(ability.definition.cost);
+            return true;
+        }
+        private void CommitAbility(ActiveAbility ability)
+        {
+            m_EffectController.ApplyGameplayEffectToSelf(new GameplayEffect(ability.definition.cost, ability, gameObject));
         }
     }
 }
