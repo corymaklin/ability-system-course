@@ -13,6 +13,7 @@ namespace AbilitySystem
             
             root.Add(CreateApplicationFieldsGUI());
             root.Add(CreateDurationFieldsGUI());
+            root.Add(CreatePeriodFieldsGUI());
             root.Add(CreateSpecialEffectFieldsGUI());
             root.Add(CreateTagFieldsGUI());
 
@@ -33,6 +34,15 @@ namespace AbilitySystem
             {
                 durationField.style.display = evt.changedProperty.boolValue ? DisplayStyle.None : DisplayStyle.Flex;
             });
+
+            VisualElement periodFields = root.Q("period");
+            PropertyField isPeriodicField = root.Q<PropertyField>("is-periodic");
+            periodFields.style.display = definition.isPeriodic ? DisplayStyle.Flex : DisplayStyle.None;
+            
+            isPeriodicField.RegisterValueChangeCallback(evt =>
+            {
+                periodFields.style.display = evt.changedProperty.boolValue ? DisplayStyle.Flex : DisplayStyle.None;
+            });
         }
 
         private VisualElement CreateDurationFieldsGUI()
@@ -42,6 +52,20 @@ namespace AbilitySystem
             root.Add(new PropertyField(serializedObject.FindProperty("m_IsInfinite")) { name = "is-infinite"});
             root.Add(new PropertyField(serializedObject.FindProperty("m_DurationFormula")) { name = "duration-formula"});
 
+            return root;
+        }
+        
+        private VisualElement CreatePeriodFieldsGUI()
+        {
+            VisualElement root = new VisualElement();
+
+            VisualElement periodFields = new VisualElement() { name = "period" };
+            periodFields.Add(new PropertyField(serializedObject.FindProperty("m_Period")));
+            periodFields.Add(new PropertyField(serializedObject.FindProperty("m_ExecutePeriodicEffectOnApplication")));
+            
+            root.Add(new PropertyField(serializedObject.FindProperty("m_IsPeriodic")) { name = "is-periodic" });
+            root.Add(periodFields);
+            
             return root;
         }
         
