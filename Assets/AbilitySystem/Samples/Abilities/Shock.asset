@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ea9c49bd614446aafb28b0662ca7046, type: 3}
-  m_Name: GameplayPersistentEffect
+  m_Script: {fileID: 11500000, guid: c188cd9d3ac54ecc9340387ff274e367, type: 3}
+  m_Name: Shock
   m_EditorClassIdentifier: 
-  m_ModifierDefinitions: []
-  m_IsInfinite: 0
-  m_DurationFormula: {fileID: 0}
+  m_GameplayEffectDefinitions:
+  - {fileID: 11400000, guid: 60c891fd8ddab8b448d882cbd1948780, type: 2}
+  m_AnimationName: Cast

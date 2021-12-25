@@ -2,7 +2,8 @@
 {
     public class ActiveAbility : Ability
     {
-        public ActiveAbility(AbilityDefinition definition, AbilityController controller) : base(definition, controller)
+        public new ActiveAbilityDefinition definition => m_Definition as ActiveAbilityDefinition;
+        public ActiveAbility(ActiveAbilityDefinition definition, AbilityController controller) : base(definition, controller)
         {
         }
     }

@@ -17,7 +17,7 @@ namespace Core
             m_MainCamera = Camera.main.transform;
         }
 
-        private void OnEnable()
+        public void Animate()
         {
             transform.DOMove(transform.position + Vector3.up, time).OnKill(() => finished?.Invoke(this));
         }

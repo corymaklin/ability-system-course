@@ -75,6 +75,7 @@ namespace CombatSystem.Scripts.Runtime
             floatingText.transform.position = transform.position + GetCenterOfCollider();
             floatingText.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
             floatingText.gameObject.SetActive(true);
+            floatingText.Animate();
         }
 
         private Vector3 GetCenterOfCollider()

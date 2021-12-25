@@ -9,11 +9,14 @@ namespace AbilitySystem
     [RequireComponent(typeof(GameplayEffectController))]
     public class AbilityController : MonoBehaviour
     {
+        public event Action<ActiveAbility> activatedAbility; 
         [SerializeField] private List<AbilityDefinition> m_AbilityDefinitions;
         protected Dictionary<string, Ability> m_Abilities = new Dictionary<string, Ability>();
         public Dictionary<string, Ability> abilities => m_Abilities;
 
         private GameplayEffectController m_EffectController;
+        public ActiveAbility currentAbility;
+        public GameObject target;
 
         protected virtual void Awake()
         {
@@ -61,11 +64,9 @@ namespace AbilitySystem
             {
                 if (ability is ActiveAbility activeAbility)
                 {
-                    if (ability is SingleTargetAbility singleTargetAbility)
-                    {
-                        singleTargetAbility.Cast(target);
-                    }
-
+                    this.target = target;
+                    currentAbility = activeAbility;
+                    activatedAbility?.Invoke(activeAbility);
                     return true;
                 }
             }

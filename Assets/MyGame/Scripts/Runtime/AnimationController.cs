@@ -1,4 +1,5 @@
-﻿using StatSystem;
+﻿using AbilitySystem;
+using StatSystem;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,12 +7,14 @@ namespace MyGame
 {
     [RequireComponent(typeof(NavMeshAgent))]
     [RequireComponent(typeof(StatController))]
+    [RequireComponent(typeof(AbilityController))]
     public class AnimationController : MonoBehaviour
     {
         [SerializeField] private float m_BaseSpeed = 3.5f;
         private Animator m_Animator;
         private NavMeshAgent m_NavMeshAgent;
         private StatController m_StatController;
+        private AbilityController m_AbilityController;
         private static readonly int MOVEMENT_SPEED = Animator.StringToHash("MovementSpeed");
         private static readonly int VELOCITY = Animator.StringToHash("Velocity");
         private static readonly int ATTACK_SPEED = Animator.StringToHash("AttackSpeed");
@@ -21,6 +24,7 @@ namespace MyGame
             m_Animator = GetComponent<Animator>();
             m_NavMeshAgent = GetComponent<NavMeshAgent>();
             m_StatController = GetComponent<StatController>();
+            m_AbilityController = GetComponent<AbilityController>();
         }
 
         private void Update()
@@ -35,6 +39,8 @@ namespace MyGame
             {
                 OnStatControllerInitialized();
             }
+
+            m_AbilityController.activatedAbility += ActivateAbility;
         }
 
         private void OnDisable()
@@ -47,6 +53,23 @@ namespace MyGame
             }
         }
 
+        #region Animation Events
+
+        public void Cast()
+        {
+            if (m_AbilityController.currentAbility is SingleTargetAbility singleTargetAbility)
+            {
+                singleTargetAbility.Cast(m_AbilityController.target);
+            }
+        }
+
+        #endregion
+        
+        private void ActivateAbility(ActiveAbility activeAbility)
+        {
+            m_Animator.SetTrigger(activeAbility.definition.animationName);
+        }
+        
         private void OnStatControllerInitialized()
         {
             OnMovementSpeedChanged();
