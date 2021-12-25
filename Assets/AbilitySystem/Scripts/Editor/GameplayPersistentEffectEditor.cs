@@ -13,6 +13,7 @@ namespace AbilitySystem
             
             root.Add(CreateApplicationFieldsGUI());
             root.Add(CreateDurationFieldsGUI());
+            root.Add(CreateTagFieldsGUI());
 
             RegisterCallbacks(root);
             
@@ -40,6 +41,13 @@ namespace AbilitySystem
             root.Add(new PropertyField(serializedObject.FindProperty("m_IsInfinite")) { name = "is-infinite"});
             root.Add(new PropertyField(serializedObject.FindProperty("m_DurationFormula")) { name = "duration-formula"});
 
+            return root;
+        }
+        
+        private VisualElement CreateTagFieldsGUI()
+        {
+            VisualElement root = new VisualElement();
+            root.Add(new PropertyField(serializedObject.FindProperty("m_GrantedTags")));
             return root;
         }
     }

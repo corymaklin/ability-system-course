@@ -1,4 +1,6 @@
-﻿using AbilitySystem.Scripts.Runtime;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using AbilitySystem.Scripts.Runtime;
 using Core;
 using UnityEngine;
 
@@ -13,5 +15,9 @@ namespace AbilitySystem
 
         [SerializeField] protected NodeGraph m_DurationFormula;
         public NodeGraph durationFormula => m_DurationFormula;
+
+        [Tooltip("These tags are applied to the actor I am applied to")]
+        [SerializeField] protected List<string> m_GrantedTags;
+        public ReadOnlyCollection<string> grantedTags => m_GrantedTags.AsReadOnly();
     }
 }

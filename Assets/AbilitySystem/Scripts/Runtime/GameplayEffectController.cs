@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Core;
 using StatSystem;
 using UnityEngine;
 using Attribute = StatSystem.Attribute;
 
 namespace AbilitySystem.Scripts.Runtime
 {
+    [RequireComponent(typeof(StatController))]
+    [RequireComponent(typeof(TagController))]
     public class GameplayEffectController : MonoBehaviour
     {
         protected List<GameplayPersistentEffect> m_ActiveEffects = new List<GameplayPersistentEffect>();
         public ReadOnlyCollection<GameplayPersistentEffect> activeEffects => m_ActiveEffects.AsReadOnly();
         protected StatController m_StatController;
+        protected TagController m_TagController;
 
         [SerializeField] private List<GameplayEffectDefinition> m_StartEffectDefinitions;
         public event Action initialized;
@@ -26,6 +30,7 @@ namespace AbilitySystem.Scripts.Runtime
         private void Awake()
         {
             m_StatController = GetComponent<StatController>();
+            m_TagController = GetComponent<TagController>();
         }
 
         private void OnEnable()
@@ -90,6 +95,11 @@ namespace AbilitySystem.Scripts.Runtime
                     stat.RemoveModifierFromSource(effect);
                 }
             }
+
+            foreach (string tag in effect.definition.grantedTags)
+            {
+                m_TagController.RemoveTag(tag);
+            }
         }
 
         private void AddUninhibitedEffects(GameplayPersistentEffect effect)
@@ -100,6 +110,11 @@ namespace AbilitySystem.Scripts.Runtime
                 {
                     stat.AddModifier(effect.modifiers[i]);
                 }
+            }
+
+            foreach (string tag in effect.definition.grantedTags)
+            {
+                m_TagController.AddTag(tag);
             }
         }
 
