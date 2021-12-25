@@ -1042,6 +1042,7 @@ MonoBehaviour:
   m_AbilityDefinitions:
   - {fileID: 11400000, guid: 9a7a2b2e6d8af5b4f952a5b664e52fe9, type: 2}
   - {fileID: 11400000, guid: 725a6b432483f4948aa6a772d160a60a, type: 2}
+  - {fileID: 11400000, guid: fd90cc9400c64ec44a79c1d80e77b2ff, type: 2}
   target: {fileID: 0}
 --- !u!114 &1652342244
 MonoBehaviour:

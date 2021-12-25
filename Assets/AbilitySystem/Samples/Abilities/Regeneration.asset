@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c188cd9d3ac54ecc9340387ff274e367, type: 3}
+  m_Name: Regeneration
+  m_EditorClassIdentifier: 
+  m_GameplayEffectDefinitions:
+  - {fileID: 11400000, guid: edb1c4b436e247c41b5b45750149101f, type: 2}
+  m_AnimationName: Cast
+  m_Cost: {fileID: 11400000, guid: 6a0978b2c1bc97e46b8b91c7b4abecc4, type: 2}
+  m_Cooldown: {fileID: 11400000, guid: e174f1b4d0c18a74cba04e7a1fc32b35, type: 2}

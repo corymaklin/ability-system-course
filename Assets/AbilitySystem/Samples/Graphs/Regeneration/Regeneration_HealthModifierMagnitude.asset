@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4934713427222578544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d19ffb4285114742bc03537d53b2b4f2, type: 3}
+  m_Name: ResultNode
+  m_EditorClassIdentifier: 
+  position: {x: 677.32, y: 337.12}
+  guid: b35ab060752fc2a4398ebf2ef41f3c49
+  child: {fileID: 7685908938781640305}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96dedc780d9e481ea58ff91b36bc723b, type: 3}
+  m_Name: Regeneration_HealthModifierMagnitude
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: -4934713427222578544}
+  nodes:
+  - {fileID: -4934713427222578544}
+  - {fileID: 7685908938781640305}
+--- !u!114 &7685908938781640305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc85815fbb647f6ad4f2ac539232d6a, type: 3}
+  m_Name: Scalar
+  m_EditorClassIdentifier: 
+  position: {x: 446, y: 384}
+  guid: c8c4e4904e38a914e9fb0f273a6851dd
+  m_Value: 1

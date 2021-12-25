@@ -35,6 +35,11 @@ namespace MyGame.Scripts
             {
                 m_AbilityController.TryActivateAbility("Heal", m_Target);
             }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                m_AbilityController.TryActivateAbility("Regeneration", m_Target);
+            }
         }
     }
 }
