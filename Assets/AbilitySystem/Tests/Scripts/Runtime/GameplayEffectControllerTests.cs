@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using AbilitySystem.Scripts.Runtime;
+using Core;
 using NUnit.Framework;
 using StatSystem;
 using UnityEditor;
@@ -87,6 +88,38 @@ namespace AbilitySystem.Tests.Scripts.Runtime
             StatController statController = m_Player.GetComponent<StatController>();
             Stat dexterity = statController.stats["Dexterity"];
             Assert.AreEqual(4, dexterity.value);
+        }
+
+        [UnityTest]
+        public IEnumerator GameplayEffectController_WhenEffectApplied_AddGrantedTags()
+        {
+            yield return null;
+            TagController tagController = m_Player.GetComponent<TagController>();
+            GameplayEffectController effectController = m_Player.GetComponent<GameplayEffectController>();
+            GameplayPersistentEffectDefinition persistentEffectDefinition =
+                AssetDatabase.LoadAssetAtPath<GameplayPersistentEffectDefinition>(
+                    "Assets/AbilitySystem/Tests/ScriptableObjects/WhenEffectApplied_GrantTags/GameplayPersistentEffect.asset");
+            GameplayPersistentEffect persistentEffect =
+                new GameplayPersistentEffect(persistentEffectDefinition, null, m_Player);
+            effectController.ApplyGameplayEffectToSelf(persistentEffect);
+            Assert.Contains("test", tagController.tags);
+        }
+
+        [UnityTest]
+        public IEnumerator GameplayEffectController_WhenPersistentEffectExpires_RemoveGrantedTags()
+        {
+            yield return null;
+            TagController tagController = m_Player.GetComponent<TagController>();
+            GameplayEffectController effectController = m_Player.GetComponent<GameplayEffectController>();
+            GameplayPersistentEffectDefinition persistentEffectDefinition =
+                AssetDatabase.LoadAssetAtPath<GameplayPersistentEffectDefinition>(
+                    "Assets/AbilitySystem/Tests/ScriptableObjects/WhenEffectApplied_GrantTags/GameplayPersistentEffect.asset");
+            GameplayPersistentEffect persistentEffect =
+                new GameplayPersistentEffect(persistentEffectDefinition, null, m_Player);
+            effectController.ApplyGameplayEffectToSelf(persistentEffect);
+            Assert.Contains("test", tagController.tags);
+            yield return new WaitForSeconds(1f);
+            Assert.AreEqual(0, tagController.tags.Count);
         }
     }
 }
