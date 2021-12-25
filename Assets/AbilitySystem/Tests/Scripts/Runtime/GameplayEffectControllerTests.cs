@@ -121,5 +121,36 @@ namespace AbilitySystem.Tests.Scripts.Runtime
             yield return new WaitForSeconds(1f);
             Assert.AreEqual(0, tagController.tags.Count);
         }
+
+        [UnityTest]
+        public IEnumerator GameplayEffectController_WhenPeriodReached_ExecuteGameplayEffect()
+        {
+            GameplayEffectController effectController = m_Player.GetComponent<GameplayEffectController>();
+            StatController statController = m_Player.GetComponent<StatController>();
+            GameplayPersistentEffectDefinition effectDefinition =
+                AssetDatabase.LoadAssetAtPath<GameplayPersistentEffectDefinition>(
+                    "Assets/AbilitySystem/Tests/ScriptableObjects/WhenPeriodReached_ExecuteGameplayEffect/GameplayPersistentEffect.asset");
+            Health health = statController.stats["Health"] as Health;
+            GameplayPersistentEffect effect = new GameplayPersistentEffect(effectDefinition, null, m_Player);
+            effectController.ApplyGameplayEffectToSelf(effect);
+            Assert.AreEqual(100, health.currentValue);
+            yield return new WaitForSeconds(1f);
+            Assert.AreEqual(95, health.currentValue);
+        }
+        
+        [UnityTest]
+        public IEnumerator GameplayEffectController_WhenApplied_ExecutePeriodicGameplayEffect()
+        {
+            yield return null;
+            GameplayEffectController effectController = m_Player.GetComponent<GameplayEffectController>();
+            StatController statController = m_Player.GetComponent<StatController>();
+            GameplayPersistentEffectDefinition effectDefinition =
+                AssetDatabase.LoadAssetAtPath<GameplayPersistentEffectDefinition>(
+                    "Assets/AbilitySystem/Tests/ScriptableObjects/WhenApplied_ExecutePeriodicGameplayEffect/GameplayPersistentEffect.asset");
+            Health health = statController.stats["Health"] as Health;
+            GameplayPersistentEffect effect = new GameplayPersistentEffect(effectDefinition, null, m_Player);
+            effectController.ApplyGameplayEffectToSelf(effect);
+            Assert.AreEqual(95, health.currentValue);
+        }
     }
 }
