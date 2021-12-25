@@ -31,6 +31,10 @@ namespace MyGame.Scripts
             {
                 m_AbilityController.TryActivateAbility("Shock", m_Target);
             }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                m_AbilityController.TryActivateAbility("Heal", m_Target);
+            }
         }
     }
 }
