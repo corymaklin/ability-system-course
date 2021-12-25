@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using AbilitySystem.Scripts.Runtime;
 using Core;
 using StatSystem;
 using UnityEngine;
 using Attribute = StatSystem.Attribute;
 
-namespace AbilitySystem.Scripts.Runtime
+namespace AbilitySystem
 {
     [RequireComponent(typeof(StatController))]
     [RequireComponent(typeof(TagController))]
-    public class GameplayEffectController : MonoBehaviour
+    public partial class GameplayEffectController : MonoBehaviour
     {
         protected List<GameplayPersistentEffect> m_ActiveEffects = new List<GameplayPersistentEffect>();
         public ReadOnlyCollection<GameplayPersistentEffect> activeEffects => m_ActiveEffects.AsReadOnly();
@@ -72,6 +73,9 @@ namespace AbilitySystem.Scripts.Runtime
             {
                 ExecuteGameplayEffect(effectToApply);   
             }
+            
+            if (effectToApply.definition.specialEffectDefinition != null)
+                PlaySpecialEffect(effectToApply);
         }
 
         private void AddGameplayEffect(GameplayPersistentEffect effect)
@@ -100,6 +104,9 @@ namespace AbilitySystem.Scripts.Runtime
             {
                 m_TagController.RemoveTag(tag);
             }
+            
+            if (effect.definition.specialPersistentEffectDefinition != null)
+                StopSpecialEffect(effect);
         }
 
         private void AddUninhibitedEffects(GameplayPersistentEffect effect)
@@ -116,6 +123,9 @@ namespace AbilitySystem.Scripts.Runtime
             {
                 m_TagController.AddTag(tag);
             }
+            
+            if (effect.definition.specialPersistentEffectDefinition != null)
+                PlaySpecialEffect(effect);
         }
 
         private void ExecuteGameplayEffect(GameplayEffect effect)

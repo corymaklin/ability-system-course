@@ -19,5 +19,9 @@ namespace AbilitySystem
         [Tooltip("These tags are applied to the actor I am applied to")]
         [SerializeField] protected List<string> m_GrantedTags;
         public ReadOnlyCollection<string> grantedTags => m_GrantedTags.AsReadOnly();
+
+        [SerializeField] private SpecialEffectDefinition m_SpecialPersistentEffectDefinition;
+        public SpecialEffectDefinition specialPersistentEffectDefinition => m_SpecialPersistentEffectDefinition;
+
     }
 }

@@ -72,30 +72,10 @@ namespace CombatSystem.Scripts.Runtime
 
         private void OnGet(FloatingText floatingText)
         {
-            floatingText.transform.position = transform.position + GetCenterOfCollider();
+            floatingText.transform.position = transform.position + Utils.GetCenterOfCollider(transform);
             floatingText.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
             floatingText.gameObject.SetActive(true);
             floatingText.Animate();
-        }
-
-        private Vector3 GetCenterOfCollider()
-        {
-            Vector3 center;
-            switch (m_Collider)
-            {
-                case CapsuleCollider capsuleCollider:
-                    center = capsuleCollider.center;
-                    break;
-                case CharacterController characterController:
-                    center = characterController.center;
-                    break;
-                default:
-                    center = Vector3.zero;
-                    Debug.LogWarning("Could not find center");
-                    break;
-            }
-
-            return center;
         }
 
         private FloatingText OnCreate()

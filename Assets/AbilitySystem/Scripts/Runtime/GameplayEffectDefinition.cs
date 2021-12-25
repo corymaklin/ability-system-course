@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Core;
 using UnityEngine;
 
 namespace AbilitySystem.Scripts.Runtime
@@ -13,5 +14,7 @@ namespace AbilitySystem.Scripts.Runtime
         public ReadOnlyCollection<AbstractGameplayEffectStatModifierDefinition> modifierDefinitions =>
             m_ModifierDefinitions.AsReadOnly();
 
+        [SerializeField] private SpecialEffectDefinition m_SpecialEffectDefinition;
+        public SpecialEffectDefinition specialEffectDefinition => m_SpecialEffectDefinition;
     }
 }

@@ -13,6 +13,7 @@ namespace AbilitySystem
             
             root.Add(CreateApplicationFieldsGUI());
             root.Add(CreateDurationFieldsGUI());
+            root.Add(CreateSpecialEffectFieldsGUI());
             root.Add(CreateTagFieldsGUI());
 
             RegisterCallbacks(root);
@@ -41,6 +42,15 @@ namespace AbilitySystem
             root.Add(new PropertyField(serializedObject.FindProperty("m_IsInfinite")) { name = "is-infinite"});
             root.Add(new PropertyField(serializedObject.FindProperty("m_DurationFormula")) { name = "duration-formula"});
 
+            return root;
+        }
+        
+        protected override VisualElement CreateSpecialEffectFieldsGUI()
+        {
+            VisualElement root = base.CreateSpecialEffectFieldsGUI();
+            
+            root.Add(new PropertyField(serializedObject.FindProperty("m_SpecialPersistentEffectDefinition")));
+            
             return root;
         }
         

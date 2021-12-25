@@ -70,3 +70,11 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Packages
+Assets/Polygon Arsenal
+Assets/Polygon Arsenal.meta
+Assets/PolygonParticleFX
+Assets/PolygonParticleFX.meta
+Assets/AbilitySystem/Samples/Prefabs
+Assets/AbilitySystem/Samples/Prefabs.meta
