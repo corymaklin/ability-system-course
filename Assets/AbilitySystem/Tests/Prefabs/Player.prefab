@@ -75,3 +75,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AbilityDefinitions:
   - {fileID: 11400000, guid: ac1d1db523bad9b4994aa7750f90f890, type: 2}
+  - {fileID: 11400000, guid: 35621daf971431c438b50411eaadf879, type: 2}

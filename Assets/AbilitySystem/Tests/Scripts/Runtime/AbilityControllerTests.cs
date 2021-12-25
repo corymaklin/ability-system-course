@@ -39,5 +39,17 @@ namespace AbilitySystem.Tests.Scripts.Runtime
             Stat wisdom = statController.stats["Wisdom"];
             Assert.AreEqual(4, wisdom.value);
         }
+
+        [UnityTest]
+        public IEnumerator AbilityController_WhenActivateAbility_ApplyEffects()
+        {
+            yield return null;
+            AbilityController abilityController = m_Player.GetComponent<AbilityController>();
+            StatController statController = m_Enemy.GetComponent<StatController>();
+            Health health = statController.stats["Health"] as Health;
+            Assert.AreEqual(100, health.currentValue);
+            abilityController.TryActivateAbility("SingleTargetAbility", m_Enemy);
+            Assert.AreEqual(95, health.currentValue);
+        }
     }
 }
