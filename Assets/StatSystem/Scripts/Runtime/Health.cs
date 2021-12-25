@@ -4,13 +4,23 @@ namespace StatSystem
 {
     public class Health : Attribute
     {
-        public Health(StatDefinition definition, StatController controller) : base(definition, controller)
+        private TagController m_TagController;
+        public Health(StatDefinition definition, StatController statController, TagController tagController) : base(definition, statController)
         {
+            m_TagController = tagController;
         }
 
         public override void ApplyModifier(StatModifier modifier)
         {
             ITaggable source = modifier.source as ITaggable;
+
+            if (m_TagController.Contains("zombify"))
+            {
+                if (source.tags.Contains("healing"))
+                {
+                    modifier.magnitude *= -1;
+                }
+            }
 
             if (source != null)
             {

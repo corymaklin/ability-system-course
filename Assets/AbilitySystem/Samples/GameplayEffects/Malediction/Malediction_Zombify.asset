@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e692b44e1f54ccc8de13ba0201234e4, type: 3}
+  m_Name: Malediction_Zombify
+  m_EditorClassIdentifier: 
+  m_ModifierDefinitions: []
+  m_SpecialEffectDefinition: {fileID: 11400000, guid: ac9c0a0d79c9ea141b48676a1174522e, type: 2}
+  m_Tags: []
+  m_IsInfinite: 0
+  m_DurationFormula: {fileID: 11400000, guid: 4d6f98c5564eda042a62d747efb118aa, type: 2}
+  m_IsPeriodic: 0
+  m_Period: 0
+  m_ExecutePeriodicEffectOnApplication: 0
+  m_GrantedTags:
+  - zombify
+  m_SpecialPersistentEffectDefinition: {fileID: 11400000, guid: 0dfb482006adbb74ba8555bc21bc1397, type: 2}
+  m_OverflowEffects: []
+  m_DenyOverflowApplication: 0
+  m_ClearStackOnOverflow: 0
+  m_StackLimitCount: 3
+  m_StackDurationRefreshPolicy: 0
+  m_StackPeriodResetPolicy: 0
+  m_StackExpirationPolicy: 0

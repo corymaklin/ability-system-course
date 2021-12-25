@@ -15,6 +15,8 @@ MonoBehaviour:
   m_ModifierDefinitions:
   - {fileID: 1150252852083984851}
   m_SpecialEffectDefinition: {fileID: 0}
+  m_Tags:
+  - healing
   m_IsInfinite: 0
   m_DurationFormula: {fileID: 11400000, guid: b65c48255b1aedb4d8fa8b39fe66c108, type: 2}
   m_IsPeriodic: 1

@@ -72,7 +72,15 @@ namespace MyGame
             }
             else
             {
-                damaged?.Invoke(modifier.magnitude, (modifier as HealthModifier).isCriticalHit);
+                if (modifier is HealthModifier healthModifier)
+                {
+                    damaged?.Invoke(modifier.magnitude, healthModifier.isCriticalHit);
+                }
+                else
+                {
+                    damaged?.Invoke(modifier.magnitude, false);
+                }
+                
                 if ((m_StatController.stats[k_Health] as Attribute).currentValue == 0)
                     defeated?.Invoke();
             }

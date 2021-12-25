@@ -45,6 +45,10 @@ namespace MyGame.Scripts
             {
                 m_AbilityController.TryActivateAbility("Poison", m_Target);
             }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                m_AbilityController.TryActivateAbility("Malediction", m_Target);
+            }
         }
     }
 }

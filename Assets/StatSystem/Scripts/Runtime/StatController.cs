@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using Core;
 using SaveSystem.Scripts.Runtime;
 using StatSystem.Nodes;
 using UnityEngine;
 
 namespace StatSystem
 {
+    [RequireComponent(typeof(TagController))]
     public class StatController : MonoBehaviour, ISavable
     {
         [SerializeField] private StatDatabase m_StatDatabase;
@@ -17,8 +19,12 @@ namespace StatSystem
         public event Action initialized;
         public event Action willUninitialize;
 
+        private TagController m_TagController;
+
         protected virtual void Awake()
         {
+            m_TagController = GetComponent<TagController>();
+            
             if (!m_IsInitialized)
             {
                 Initialize();
@@ -41,7 +47,7 @@ namespace StatSystem
             {
                 if (definition.name.Equals("Health", StringComparison.OrdinalIgnoreCase))
                 {
-                    m_Stats.Add(definition.name, new Health(definition, this));
+                    m_Stats.Add(definition.name, new Health(definition, this, m_TagController));
                 }
                 else
                 {

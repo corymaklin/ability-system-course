@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using AbilitySystem.Scripts.Runtime;
+using Core;
 using StatSystem;
 using UnityEngine;
 
-namespace AbilitySystem.Scripts.Runtime
+namespace AbilitySystem
 {
-    public class GameplayEffect
+    public class GameplayEffect : ITaggable
     {
         protected GameplayEffectDefinition m_Definition;
         public GameplayEffectDefinition definition => m_Definition;
@@ -15,6 +17,8 @@ namespace AbilitySystem.Scripts.Runtime
         public GameObject instigator => m_Instigator;
         private List<StatModifier> m_Modifiers = new List<StatModifier>();
         public ReadOnlyCollection<StatModifier> modifiers => m_Modifiers.AsReadOnly();
+
+        public ReadOnlyCollection<string> tags => m_Definition.tags;
 
         public GameplayEffect(GameplayEffectDefinition definition, object source, GameObject instigator)
         {
