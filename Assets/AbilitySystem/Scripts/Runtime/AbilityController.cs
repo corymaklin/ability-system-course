@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using AbilitySystem.Scripts.Runtime;
+using Core;
 using UnityEngine;
 
 namespace AbilitySystem
 {
     [RequireComponent(typeof(GameplayEffectController))]
+    [RequireComponent(typeof(TagController))]
     public class AbilityController : MonoBehaviour
     {
         public event Action<ActiveAbility> activatedAbility; 
@@ -15,12 +17,14 @@ namespace AbilitySystem
         public Dictionary<string, Ability> abilities => m_Abilities;
 
         private GameplayEffectController m_EffectController;
+        private TagController m_TagController;
         public ActiveAbility currentAbility;
         public GameObject target;
 
         protected virtual void Awake()
         {
             m_EffectController = GetComponent<GameplayEffectController>();
+            m_TagController = GetComponent<TagController>();
         }
 
         private void OnEnable()
@@ -79,13 +83,24 @@ namespace AbilitySystem
 
         public bool CanActivateAbility(ActiveAbility ability)
         {
+            if (ability.definition.cooldown != null)
+            {
+                if (m_TagController.ContainsAny(ability.definition.cooldown.grantedTags))
+                {
+                    Debug.Log($"{ability.definition.name} is on cooldown!");
+                    return false;
+                }
+            }
+            
             if (ability.definition.cost != null)
                 return m_EffectController.CanApplyAttributeModifiers(ability.definition.cost);
+            
             return true;
         }
         private void CommitAbility(ActiveAbility ability)
         {
             m_EffectController.ApplyGameplayEffectToSelf(new GameplayEffect(ability.definition.cost, ability, gameObject));
+            m_EffectController.ApplyGameplayEffectToSelf(new GameplayPersistentEffect(ability.definition.cooldown, ability, gameObject));
         }
     }
 }

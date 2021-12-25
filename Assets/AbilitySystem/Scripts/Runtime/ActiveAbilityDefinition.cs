@@ -10,5 +10,8 @@ namespace AbilitySystem
 
         [SerializeField] protected GameplayEffectDefinition m_Cost;
         public GameplayEffectDefinition cost => m_Cost;
+
+        [SerializeField] private GameplayPersistentEffectDefinition m_Cooldown;
+        public GameplayPersistentEffectDefinition cooldown => m_Cooldown;
     }
 }
