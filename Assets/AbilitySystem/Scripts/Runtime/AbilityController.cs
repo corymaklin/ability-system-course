@@ -43,10 +43,10 @@ namespace AbilitySystem
         {
             foreach (AbilityDefinition abilityDefinition in m_AbilityDefinitions)
             {
-                AbilityAttributeType abilityAttributeType = abilityDefinition.GetType().GetCustomAttributes(true)
-                    .OfType<AbilityAttributeType>().FirstOrDefault();
+                AbilityTypeAttribute abilityTypeAttribute = abilityDefinition.GetType().GetCustomAttributes(true)
+                    .OfType<AbilityTypeAttribute>().FirstOrDefault();
                 Ability ability =
-                    Activator.CreateInstance(abilityAttributeType.type, abilityDefinition, this) as Ability;
+                    Activator.CreateInstance(abilityTypeAttribute.type, abilityDefinition, this) as Ability;
                 m_Abilities.Add(abilityDefinition.name, ability);
                 if (ability is PassiveAbility passiveAbility)
                 {

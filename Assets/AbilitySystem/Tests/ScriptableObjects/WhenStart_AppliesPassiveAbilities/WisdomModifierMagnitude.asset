@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8972663080386118097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc85815fbb647f6ad4f2ac539232d6a, type: 3}
+  m_Name: Scalar
+  m_EditorClassIdentifier: 
+  position: {x: 287, y: 310}
+  guid: c063640c5e8c76d4c9d7bb2300de38d3
+  m_Value: 3
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96dedc780d9e481ea58ff91b36bc723b, type: 3}
+  m_Name: WisdomModifierMagnitude
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 2079812682713775645}
+  nodes:
+  - {fileID: 2079812682713775645}
+  - {fileID: -8972663080386118097}
+--- !u!114 &2079812682713775645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d19ffb4285114742bc03537d53b2b4f2, type: 3}
+  m_Name: ResultNode
+  m_EditorClassIdentifier: 
+  position: {x: 714.16003, y: 296.04}
+  guid: 47a89eae3873b2e4aa45f67058a9de26
+  child: {fileID: -8972663080386118097}

@@ -3,11 +3,11 @@
 namespace AbilitySystem
 {
     [AttributeUsage(AttributeTargets.Class, Inherited = false)]
-    public class AbilityAttributeType : Attribute
+    public class AbilityTypeAttribute : Attribute
     {
         public readonly Type type;
 
-        public AbilityAttributeType(Type type)
+        public AbilityTypeAttribute(Type type)
         {
             this.type = type;
         }
