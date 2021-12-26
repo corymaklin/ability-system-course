@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GameplayEffectDefinitions:
   - {fileID: 11400000, guid: ffdc7c131565758488bb84870fb1e738, type: 2}
+  m_MaxLevel: 20
+  m_Icon: {fileID: 21300000, guid: 17e2e33ab7941f84ab130a554c721e16, type: 3}
+  m_Description: Poisons the target
   m_AnimationName: Cast
   m_Cost: {fileID: 11400000, guid: da09404ad289c064d8b41afb1edd0e68, type: 2}
   m_Cooldown: {fileID: 11400000, guid: 22d0ae731fd7e044db1d2243737f7256, type: 2}

@@ -1,0 +1,46 @@
+#abilities__header {
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.57);
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#abilities__title {
+    -unity-text-align: middle-center;
+    font-size: 16px;
+    -unity-font-style: bold;
+    color: rgb(210, 210, 210);
+}
+
+#abilities__content {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+#abilities__footer {
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.35);
+    font-size: 14px;
+    -unity-font-style: bold;
+    color: rgb(210, 210, 210);
+}
+
+#abilities__ability-points-label {
+    margin-right: 3%;
+}
+
+#abilities__separator {
+    height: 1%;
+    background-color: rgba(60, 60, 60, 255);
+}
+
+#abilities__panel {
+    position: absolute;
+    width: 287px;
+    height: 414px;
+}

@@ -1,11 +1,11 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/AbilitySystem/Resources/UI/Ability.uss?fileID=7433441132597879392&amp;guid=2bf682ee3fc079a418c5cf23dd501b0b&amp;type=3#Ability" />
-    <ui:VisualElement name="slot">
-        <ui:VisualElement name="icon" />
-        <ui:VisualElement name="content">
-            <ui:Label text="Fireball" display-tooltip-when-elided="true" name="title" />
-            <ui:Label text="0" display-tooltip-when-elided="true" name="level" />
-            <ui:Button text="+" display-tooltip-when-elided="true" name="increment-button" />
+    <ui:VisualElement name="ability__slot">
+        <ui:VisualElement name="ability__icon" />
+        <ui:VisualElement name="ability__content">
+            <ui:Label text="Fireball" display-tooltip-when-elided="true" name="ability__title" />
+            <ui:Label text="0" display-tooltip-when-elided="true" name="ability__level" />
+            <ui:Button text="+" display-tooltip-when-elided="true" name="ability__increment-button" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

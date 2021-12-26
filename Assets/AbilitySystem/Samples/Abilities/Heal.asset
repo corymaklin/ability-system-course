@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GameplayEffectDefinitions:
   - {fileID: 11400000, guid: 09711b1afaf08294ba61126ece97e082, type: 2}
+  m_MaxLevel: 20
+  m_Icon: {fileID: 21300000, guid: 5f7d9bd9b29110144abb6d2bdb3c50a7, type: 3}
+  m_Description: Heals the target
   m_AnimationName: Cast
   m_Cost: {fileID: 11400000, guid: 8330fb4406436264f8960b6e25dfc39e, type: 2}
   m_Cooldown: {fileID: 11400000, guid: b9d5aa0f267a9c74b8c3306c744543cd, type: 2}

@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GameplayEffectDefinitions:
   - {fileID: 11400000, guid: edb1c4b436e247c41b5b45750149101f, type: 2}
+  m_MaxLevel: 20
+  m_Icon: {fileID: 21300000, guid: 29c2970ef2f9d0b47af38076f7c0a0a6, type: 3}
+  m_Description: Regenerates the target's health
   m_AnimationName: Cast
   m_Cost: {fileID: 11400000, guid: 6a0978b2c1bc97e46b8b91c7b4abecc4, type: 2}
   m_Cooldown: {fileID: 11400000, guid: e174f1b4d0c18a74cba04e7a1fc32b35, type: 2}

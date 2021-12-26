@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/AbilitySystem/Resources/UI/Abilities.uss?fileID=7433441132597879392&amp;guid=ad03ae5d1df24f04ca71634486b25584&amp;type=3#Abilities" />
+    <ui:VisualElement name="abilities__panel">
+        <ui:VisualElement name="abilities__header">
+            <ui:Label text="Abilities" display-tooltip-when-elided="true" name="abilities__title" />
+            <ui:Button text="X" display-tooltip-when-elided="true" name="abilities__close-button" />
+        </ui:VisualElement>
+        <ui:ScrollView name="abilities__content" />
+        <ui:VisualElement name="abilities__separator" />
+        <ui:VisualElement name="abilities__footer">
+            <ui:Label text="Ability Points" display-tooltip-when-elided="true" name="abilities__ability-points-label" />
+            <ui:Label text="0" display-tooltip-when-elided="true" name="abilities__ability-points-value" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

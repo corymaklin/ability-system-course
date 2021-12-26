@@ -1,4 +1,4 @@
-#slot {
+#ability__slot {
     position: relative;
     width: 100%;
     min-height: 70px;
@@ -19,7 +19,7 @@
     padding: 10px;
 }
 
-#icon {
+#ability__icon {
     width: 50px;
     height: 50px;
     border-left-color: rgb(210, 210, 210);
@@ -37,23 +37,23 @@
     margin-right: 10px;
 }
 
-#content {
+#ability__content {
     flex-grow: 1;
 }
 
-#title {
+#ability__title {
     -unity-font-style: bold;
     font-size: 16px;
     color: #D2D2D2;
 }
 
-#increment-button {
+#ability__increment-button {
     position: absolute;
     right: 0;
     bottom: 0;
 }
 
-#level {
+#ability__level {
     font-size: 14px;
     color: #D2D2D2;
     white-space: normal;
