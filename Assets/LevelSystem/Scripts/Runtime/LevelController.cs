@@ -26,10 +26,8 @@ namespace LevelSystem
             {
                 if (value >= requiredExperience)
                 {
-                    m_CurrentExperience = value - requiredExperience;
-                    currentExperienceChanged?.Invoke();
-                    m_Level++;
-                    levelChanged?.Invoke();
+                    m_CurrentExperience = value;
+                    LevelUp();
                 }
                 else if (value < requiredExperience)
                 {
@@ -37,6 +35,16 @@ namespace LevelSystem
                     currentExperienceChanged?.Invoke();
                 }
             }
+        }
+
+        private void LevelUp()
+        {
+            m_CurrentExperience -= requiredExperience;
+            currentExperienceChanged?.Invoke();
+            m_Level++;
+            levelChanged?.Invoke();
+            if (m_CurrentExperience >= requiredExperience)
+                LevelUp();
         }
 
         public int requiredExperience => Mathf.RoundToInt(m_RequiredExperienceFormula.rootNode.value);
