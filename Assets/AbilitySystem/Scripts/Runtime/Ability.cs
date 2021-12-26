@@ -11,6 +11,23 @@ namespace AbilitySystem
         protected AbilityDefinition m_Definition;
         public AbilityDefinition definition => m_Definition;
         protected AbilityController m_Controller;
+
+        public event Action levelChanged;
+        private int m_Level;
+
+        public int level
+        {
+            get => m_Level;
+            set
+            {
+                int newLevel = Mathf.Min(value, definition.maxLevel);
+                if (newLevel != m_Level)
+                {
+                    m_Level = newLevel;
+                    levelChanged?.Invoke();
+                }
+            }
+        }
         
         public Ability(AbilityDefinition definition, AbilityController controller)
         {

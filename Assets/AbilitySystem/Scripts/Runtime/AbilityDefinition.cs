@@ -11,5 +11,8 @@ namespace AbilitySystem
 
         public ReadOnlyCollection<GameplayEffectDefinition> gameplayEffectDefinitions =>
             m_GameplayEffectDefinitions.AsReadOnly();
+
+        [SerializeField] private int m_MaxLevel;
+        public int maxLevel => m_MaxLevel;
     }
 }
