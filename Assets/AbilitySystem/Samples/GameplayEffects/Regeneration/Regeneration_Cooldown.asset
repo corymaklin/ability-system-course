@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Regeneration_Cooldown
   m_EditorClassIdentifier: 
   m_ModifierDefinitions: []
+  m_Description: 
   m_SpecialEffectDefinition: {fileID: 0}
+  m_Tags: []
   m_IsInfinite: 0
   m_DurationFormula: {fileID: 11400000, guid: de10260842e0c3b49885f0d4798c24ae, type: 2}
   m_IsPeriodic: 0

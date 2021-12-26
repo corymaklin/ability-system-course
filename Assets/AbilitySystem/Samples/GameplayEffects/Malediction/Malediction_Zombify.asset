@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Malediction_Zombify
   m_EditorClassIdentifier: 
   m_ModifierDefinitions: []
+  m_Description: 
   m_SpecialEffectDefinition: {fileID: 11400000, guid: ac9c0a0d79c9ea141b48676a1174522e, type: 2}
   m_Tags: []
   m_IsInfinite: 0

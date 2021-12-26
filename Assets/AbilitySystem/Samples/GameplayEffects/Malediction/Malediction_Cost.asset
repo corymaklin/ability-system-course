@@ -29,5 +29,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ModifierDefinitions:
   - {fileID: -2795571864139315197}
+  m_Description: 
   m_SpecialEffectDefinition: {fileID: 0}
   m_Tags: []

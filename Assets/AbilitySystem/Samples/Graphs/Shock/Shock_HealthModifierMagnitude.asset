@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position: {x: 522, y: 253}
   guid: 958ced813a4acd842827afbbf89893cd
-  factorA: {fileID: 0}
+  factorA: {fileID: 4046091498402417064}
   factorB: {fileID: 1563425142515497697}
 --- !u!114 &-42660352459306790
 MonoBehaviour:
@@ -78,4 +78,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position: {x: 300, y: 186}
   guid: 9e8e23668c861d04dbaea5dd380e6f3a
-  m_AbilityName: 
+  m_AbilityName: Shock

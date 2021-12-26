@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: Heal_Cooldown
   m_EditorClassIdentifier: 
   m_ModifierDefinitions: []
+  m_Description: '{GameplayPersistentEffect.duration} seconds cooldown'
   m_SpecialEffectDefinition: {fileID: 0}
+  m_Tags: []
   m_IsInfinite: 0
   m_DurationFormula: {fileID: 11400000, guid: e2692d6a79feea64a885edb55e2a1ed3, type: 2}
+  m_IsPeriodic: 0
+  m_Period: 0
+  m_ExecutePeriodicEffectOnApplication: 0
   m_GrantedTags: []
   m_SpecialPersistentEffectDefinition: {fileID: 0}

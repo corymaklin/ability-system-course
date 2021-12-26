@@ -14,5 +14,10 @@ namespace StatSystem
         public object source { get; set; }
         public int magnitude { get; set; }
         public ModifierOperationType type { get; set; }
+
+        public override string ToString()
+        {
+            return magnitude.ToString();
+        }
     }
 }

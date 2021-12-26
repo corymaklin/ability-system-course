@@ -14,11 +14,33 @@ namespace AbilitySystem
         public override VisualElement CreateInspectorGUI()
         {
             VisualElement root = new VisualElement();
+
+            StyleSheet styleSheet =
+                AssetDatabase.LoadAssetAtPath<StyleSheet>(
+                    "Assets/AbilitySystem/Scripts/Editor/GameplayEffectEditor.uss");
+            root.styleSheets.Add(styleSheet);
             
+            root.Add(CreateCoreFieldsGUI());
             root.Add(CreateApplicationFieldsGUI());
             root.Add(CreateSpecialEffectFieldsGUI());
             root.Add(CreateTagFieldsGUI());
             
+            return root;
+        }
+
+        protected virtual VisualElement CreateCoreFieldsGUI()
+        {
+            VisualElement root = new VisualElement();
+
+            TextField description = new TextField
+            {
+                label = "Description",
+                bindingPath = "m_Description",
+                multiline = true
+            };
+            description.Bind(serializedObject);
+            description.AddToClassList("description");
+            root.Add(description);
             return root;
         }
 

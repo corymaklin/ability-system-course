@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: Shock_Cooldown
   m_EditorClassIdentifier: 
   m_ModifierDefinitions: []
+  m_Description: 
   m_SpecialEffectDefinition: {fileID: 0}
+  m_Tags: []
   m_IsInfinite: 0
   m_DurationFormula: {fileID: 11400000, guid: 427f2d925380a584aac6cc418c2e0e7b, type: 2}
+  m_IsPeriodic: 0
+  m_Period: 0
+  m_ExecutePeriodicEffectOnApplication: 0
   m_GrantedTags:
   - shock.cooldown
   m_SpecialPersistentEffectDefinition: {fileID: 0}

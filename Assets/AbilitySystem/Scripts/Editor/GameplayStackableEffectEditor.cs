@@ -11,6 +11,12 @@ namespace AbilitySystem
         {
             VisualElement root = new VisualElement();
             
+            StyleSheet styleSheet =
+                AssetDatabase.LoadAssetAtPath<StyleSheet>(
+                    "Assets/AbilitySystem/Scripts/Editor/GameplayEffectEditor.uss");
+            root.styleSheets.Add(styleSheet);
+            
+            root.Add(CreateCoreFieldsGUI());
             root.Add(CreateApplicationFieldsGUI());
             root.Add(CreateDurationFieldsGUI());
             root.Add(CreatePeriodFieldsGUI());

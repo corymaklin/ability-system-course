@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text;
 using AbilitySystem.Scripts.Runtime;
 using UnityEngine;
 
@@ -33,6 +34,22 @@ namespace AbilitySystem
         {
             m_Definition = definition;
             m_Controller = controller;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (GameplayEffectDefinition effectDefinition in definition.gameplayEffectDefinitions)
+            {
+                EffectTypeAttribute attribute = effectDefinition.GetType().GetCustomAttributes(true)
+                    .OfType<EffectTypeAttribute>().FirstOrDefault();
+                GameplayEffect effect =
+                    Activator.CreateInstance(attribute.type, effectDefinition, this, m_Controller.gameObject) as
+                        GameplayEffect;
+                stringBuilder.Append(effect).AppendLine();
+            }
+
+            return stringBuilder.ToString();
         }
 
         internal void ApplyEffects(GameObject other)

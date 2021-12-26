@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ModifierDefinitions:
   - {fileID: 9125728596895029156}
+  m_Description: Restores {GameplayEffect.modifiers[0]} health
   m_SpecialEffectDefinition: {fileID: 11400000, guid: 0729f7e98b41bce46b205ea601e2134f, type: 2}
   m_Tags:
   - healing

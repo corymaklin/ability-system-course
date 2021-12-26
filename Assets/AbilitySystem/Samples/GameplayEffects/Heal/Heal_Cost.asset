@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ModifierDefinitions:
   - {fileID: 8061710712461122847}
+  m_Description: '{GameplayEffect.modifiers[0]} mana cost'
   m_SpecialEffectDefinition: {fileID: 0}
+  m_Tags: []
 --- !u!114 &8061710712461122847
 MonoBehaviour:
   m_ObjectHideFlags: 0

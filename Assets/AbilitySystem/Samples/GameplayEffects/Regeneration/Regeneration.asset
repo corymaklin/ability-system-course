@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ModifierDefinitions:
   - {fileID: 1150252852083984851}
+  m_Description: 
   m_SpecialEffectDefinition: {fileID: 0}
   m_Tags:
   - healing

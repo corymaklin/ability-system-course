@@ -14,6 +14,9 @@ namespace AbilitySystem.Scripts.Runtime
         public ReadOnlyCollection<AbstractGameplayEffectStatModifierDefinition> modifierDefinitions =>
             m_ModifierDefinitions.AsReadOnly();
 
+        [SerializeField] private string m_Description;
+        public string description => m_Description;
+
         [SerializeField] private SpecialEffectDefinition m_SpecialEffectDefinition;
         public SpecialEffectDefinition specialEffectDefinition => m_SpecialEffectDefinition;
 
