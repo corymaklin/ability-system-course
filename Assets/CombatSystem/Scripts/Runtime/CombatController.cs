@@ -1,4 +1,5 @@
-﻿using CombatSystem.Scripts.Runtime.Core;
+﻿using System.Collections.Generic;
+using CombatSystem.Scripts.Runtime.Core;
 using Core;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -8,6 +9,7 @@ namespace CombatSystem.Scripts.Runtime
     [RequireComponent(typeof(Collider))]
     public class CombatController : MonoBehaviour
     {
+        public Dictionary<string, RangedWeapon> rangedWeapons = new Dictionary<string, RangedWeapon>();
         [SerializeField] private FloatingText m_FloatingTextPrefab;
         private ObjectPool<FloatingText> m_Pool;
         private Collider m_Collider;
@@ -15,6 +17,10 @@ namespace CombatSystem.Scripts.Runtime
 
         private void Awake()
         {
+            foreach (RangedWeapon rangedWeapon in GetComponentsInChildren<RangedWeapon>())
+            {
+                rangedWeapons.Add(rangedWeapon.id, rangedWeapon);
+            }
             m_Collider = GetComponent<Collider>();
             m_Damageable = GetComponent<IDamageable>();
             m_Pool = new ObjectPool<FloatingText>(OnCreate, OnGet, OnRelease);

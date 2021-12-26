@@ -32,7 +32,7 @@ namespace MyGame.Scripts
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                m_AbilityController.TryActivateAbility("Shock", m_Target);
+                m_AbilityController.TryActivateAbility("Fireball", m_Target);
             }
             if (Input.GetKeyDown(KeyCode.W))
             {

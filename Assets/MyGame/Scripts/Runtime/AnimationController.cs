@@ -55,6 +55,14 @@ namespace MyGame
 
         #region Animation Events
 
+        public void Shoot()
+        {
+            if (m_AbilityController.currentAbility is ProjectileAbility projectileAbility)
+            {
+                projectileAbility.Shoot(m_AbilityController.target);
+            }
+        }
+        
         public void Cast()
         {
             if (m_AbilityController.currentAbility is SingleTargetAbility singleTargetAbility)

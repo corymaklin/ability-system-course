@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ee823a44ca4d68bf99c3309f5b6cc2, type: 3}
+  m_Name: Fireball
+  m_EditorClassIdentifier: 
+  m_GameplayEffectDefinitions:
+  - {fileID: 11400000, guid: 239028432e6df35409224c7d6c21184d, type: 2}
+  m_MaxLevel: 20
+  m_Icon: {fileID: 21300000, guid: 9f69b220176e6964fbd87f5f158d45e3, type: 3}
+  m_Description: A ball of fire
+  m_AnimationName: Shoot
+  m_Cost: {fileID: 11400000, guid: 94e633c23332a474bb07868ae60f028d, type: 2}
+  m_Cooldown: {fileID: 11400000, guid: 434b139fd420c26408d4602ee4027362, type: 2}
+  m_ProjectileSpeed: 10
+  m_ShotType: 0
+  m_IsSpinning: 0
+  m_ProjectilePrefab: {fileID: -5486193694728919236, guid: 1e65a00b5a2c397458db98dec670332e, type: 3}
+  m_WeaponId: RightHand

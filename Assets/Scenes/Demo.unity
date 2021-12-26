@@ -335,6 +335,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 859837766977157636, guid: 57ad2d3ed79d2f94dbc50dde810f58f8, type: 3}
   m_PrefabInstance: {fileID: 446421802}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &463728098 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 3cb452ee88bd1584a9cb63621622556c, type: 3}
+  m_PrefabInstance: {fileID: 1652342235}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &533061815
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,6 +737,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6515f2102e5044eb8b4e49c8d769dab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1486519819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1486519820}
+  - component: {fileID: 1486519821}
+  m_Layer: 0
+  m_Name: RightHand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1486519820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486519819}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 463728098}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1486519821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486519819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8137e586b714172a9b1da36168bd57a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Id: RightHand
+  m_SpawnPoint: {fileID: 1486519820}
 --- !u!1001 &1535258770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1155,6 +1206,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 636744a2ce119614cac41fb069105f6f, type: 2}
   - {fileID: 11400000, guid: fd90cc9400c64ec44a79c1d80e77b2ff, type: 2}
   - {fileID: 11400000, guid: 9a7a2b2e6d8af5b4f952a5b664e52fe9, type: 2}
+  - {fileID: 11400000, guid: 6327df62ec7732a4c919a694e6a3da1f, type: 2}
   target: {fileID: 0}
 --- !u!114 &1652342254
 MonoBehaviour:
