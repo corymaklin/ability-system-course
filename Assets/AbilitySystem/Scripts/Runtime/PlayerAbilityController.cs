@@ -68,5 +68,39 @@ namespace AbilitySystem
         {
             abilityPoints += 3;
         }
+
+        #region Save System
+
+        public override object data
+        {
+            get
+            {
+                return new PlayerAbilityControllerData(base.data as AbilityControllerData)
+                {
+                    abilityPoints = m_AbilityPoints
+                };
+            }
+        }
+
+        public override void Load(object data)
+        {
+            base.Load(data);
+            PlayerAbilityControllerData playerAbilityControllerData = (PlayerAbilityControllerData)data;
+            m_AbilityPoints = playerAbilityControllerData.abilityPoints;
+            abilityPointsChanged?.Invoke();
+        }
+
+        [Serializable]
+        protected class PlayerAbilityControllerData : AbilityControllerData
+        {
+            public int abilityPoints;
+
+            public PlayerAbilityControllerData(AbilityControllerData abilityControllerData)
+            {
+                abilities = abilityControllerData.abilities;
+            }
+        }
+
+        #endregion
     }
 }

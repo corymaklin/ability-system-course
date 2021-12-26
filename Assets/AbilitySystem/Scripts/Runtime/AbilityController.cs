@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using AbilitySystem.Scripts.Runtime;
 using Core;
+using SaveSystem.Scripts.Runtime;
 using UnityEngine;
 
 namespace AbilitySystem
 {
     [RequireComponent(typeof(GameplayEffectController))]
     [RequireComponent(typeof(TagController))]
-    public class AbilityController : MonoBehaviour
+    public class AbilityController : MonoBehaviour, ISavable
     {
         public event Action<ActiveAbility> activatedAbility; 
         [SerializeField] private List<AbilityDefinition> m_AbilityDefinitions;
@@ -102,5 +103,48 @@ namespace AbilitySystem
             m_EffectController.ApplyGameplayEffectToSelf(new GameplayEffect(ability.definition.cost, ability, gameObject));
             m_EffectController.ApplyGameplayEffectToSelf(new GameplayPersistentEffect(ability.definition.cooldown, ability, gameObject));
         }
+
+        #region Save System
+
+        public virtual object data
+        {
+            get
+            {
+                Dictionary<string, object> abilities = new Dictionary<string, object>();
+                foreach (Ability ability in m_Abilities.Values)
+                {
+                    if (ability is ISavable savable)
+                    {
+                        abilities.Add(ability.definition.name, savable.data);
+                    }
+                }
+
+                return new AbilityControllerData
+                {
+                    abilities = abilities
+                };
+            }
+        }
+        public virtual void Load(object data)
+        {
+            AbilityControllerData abilityControllerData = (AbilityControllerData)data;
+            foreach (Ability ability in m_Abilities.Values)
+            {
+                if (ability is ISavable savable)
+                {
+                    savable.Load(abilityControllerData.abilities[ability.definition.name]);
+                }
+            }
+        }
+
+        [Serializable]
+        protected class AbilityControllerData
+        {
+            public Dictionary<string, object> abilities;
+        }
+
+        #endregion
+        
+        
     }
 }

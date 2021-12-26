@@ -3,11 +3,12 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using AbilitySystem.Scripts.Runtime;
+using SaveSystem.Scripts.Runtime;
 using UnityEngine;
 
 namespace AbilitySystem
 {
-    public abstract class Ability
+    public abstract class Ability : ISavable
     {
         protected AbilityDefinition m_Definition;
         public AbilityDefinition definition => m_Definition;
@@ -72,5 +73,27 @@ namespace AbilitySystem
                 }
             }
         }
+
+        #region Save System
+
+        public object data => new AbilityData
+        {
+            level = m_Level
+        };
+        public void Load(object data)
+        {
+            AbilityData abilityData = (AbilityData)data;
+            m_Level = abilityData.level;
+            levelChanged?.Invoke();
+        }
+
+        [Serializable]
+        protected class AbilityData
+        {
+            public int level;
+        }
+
+        #endregion
+        
     }
 }

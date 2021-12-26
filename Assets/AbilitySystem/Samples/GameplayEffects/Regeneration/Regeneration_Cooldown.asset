@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Regeneration_Cooldown
   m_EditorClassIdentifier: 
   m_ModifierDefinitions: []
-  m_Description: 
+  m_Description: '{GameplayPersistentEffect.duration} seconds cooldown'
   m_SpecialEffectDefinition: {fileID: 0}
   m_Tags: []
   m_IsInfinite: 0

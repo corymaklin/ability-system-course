@@ -15,4 +15,4 @@ MonoBehaviour:
   m_LoadDataChannel: {fileID: 11400000, guid: b186c19f7a4a9b0428d240ad623826a3, type: 2}
   m_SaveDataChannel: {fileID: 11400000, guid: 262def29d4b24ca4bbbbccf5f85ccd9f, type: 2}
   m_FileName: Mygame
-  m_Path: C:/Users/Cory/AppData/LocalLow/DefaultCompany/udemy-stat-system-course\Mygame
+  m_Path: C:/Users/Cory/AppData/LocalLow/DefaultCompany/udemy-ability-system-course\Mygame

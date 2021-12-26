@@ -28,7 +28,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ModifierDefinitions:
   - {fileID: -8827343681229681342}
-  m_Description: 
+  m_Description: Deals {GameplayStackableEffect.modifiers[0]} health damage every
+    {GameplayStackableEffect.definition.period} seconds for {GameplayStackableEffect.duration}
+    seconds
   m_SpecialEffectDefinition: {fileID: 0}
   m_Tags:
   - status
