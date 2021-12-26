@@ -18,7 +18,7 @@ namespace AbilitySystem
         public int level
         {
             get => m_Level;
-            set
+            internal set
             {
                 int newLevel = Mathf.Min(value, definition.maxLevel);
                 if (newLevel != m_Level)

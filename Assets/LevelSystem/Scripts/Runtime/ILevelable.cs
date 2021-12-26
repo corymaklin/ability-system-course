@@ -12,5 +12,6 @@ namespace LevelSystem
         bool isInitialized { get; }
         event Action initialized;
         event Action willUninitialize;
+        event Action loaded;
     }
 }

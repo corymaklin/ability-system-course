@@ -43,6 +43,7 @@ namespace LevelSystem
         public bool isInitialized => m_IsInitialized;
         public event Action initialized;
         public event Action willUninitialize;
+        public event Action loaded;
 
         private void Awake()
         {
@@ -80,9 +81,8 @@ namespace LevelSystem
         {
             LevelControllerData levelControllerData = (LevelControllerData)data;
             m_CurrentExperience = levelControllerData.currentExperience;
-            currentExperienceChanged?.Invoke();
             m_Level = levelControllerData.level;
-            levelChanged?.Invoke();
+            loaded?.Invoke();
         }
 
         [Serializable]

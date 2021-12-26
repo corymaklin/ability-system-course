@@ -27,7 +27,7 @@ namespace AbilitySystem
             m_TagController = GetComponent<TagController>();
         }
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             m_EffectController.initialized += OnEffectControllerInitialized;
             if (m_EffectController.isInitialized)
@@ -36,7 +36,7 @@ namespace AbilitySystem
             }
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             m_EffectController.initialized -= OnEffectControllerInitialized;
         }
