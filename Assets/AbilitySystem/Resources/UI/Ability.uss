@@ -1,0 +1,60 @@
+#slot {
+    position: relative;
+    width: 100%;
+    min-height: 70px;
+    background-color: rgba(28, 32, 35, 0.7);
+    flex-direction: row;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    padding: 10px;
+}
+
+#icon {
+    width: 50px;
+    height: 50px;
+    border-left-color: rgb(210, 210, 210);
+    border-right-color: rgb(210, 210, 210);
+    border-top-color: rgb(210, 210, 210);
+    border-bottom-color: rgb(210, 210, 210);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-right: 10px;
+}
+
+#content {
+    flex-grow: 1;
+}
+
+#title {
+    -unity-font-style: bold;
+    font-size: 16px;
+    color: #D2D2D2;
+}
+
+#increment-button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+#level {
+    font-size: 14px;
+    color: #D2D2D2;
+    white-space: normal;
+}
