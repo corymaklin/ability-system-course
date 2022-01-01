@@ -1,0 +1,72 @@
+#ability-tooltip__container {
+    position: absolute;
+    width: 260px;
+    min-height: 70px;
+    background-color: rgba(28, 32, 35, 0.7);
+    flex-direction: row;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+}
+
+#ability-tooltip__icon {
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-left-color: rgb(210, 210, 210);
+    border-right-color: rgb(210, 210, 210);
+    border-top-color: rgb(210, 210, 210);
+    border-bottom-color: rgb(210, 210, 210);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#ability-tooltip__content {
+    flex-grow: 1;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#ability-tooltip__title {
+    -unity-font-style: bold;
+    font-size: 16px;
+    color: #D2D2D2;
+}
+
+#ability-tooltip__separator {
+    height: 10px;
+}
+
+#ability-tooltip__description {
+    font-size: 14px;
+    color: #D2D2D2;
+    white-space: normal;
+}
+
+#ability-tooltip__data {
+    font-size: 14px;
+    color: #D2D2D2;
+    white-space: normal;
+}

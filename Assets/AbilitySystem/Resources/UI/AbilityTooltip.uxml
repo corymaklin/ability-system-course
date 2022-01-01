@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/AbilitySystem/Resources/UI/AbilityTooltip.uss?fileID=7433441132597879392&amp;guid=ab63fd059fb02b44eaf13d34eaeec8e4&amp;type=3#AbilityTooltip" />
+    <ui:VisualElement name="ability-tooltip__container" picking-mode="Ignore">
+        <ui:VisualElement name="ability-tooltip__header" />
+        <ui:VisualElement name="ability-tooltip__icon" />
+        <ui:VisualElement name="ability-tooltip__content">
+            <ui:Label text="Name" display-tooltip-when-elided="true" name="ability-tooltip__title" />
+            <ui:Label text="description" display-tooltip-when-elided="true" name="ability-tooltip__description" />
+            <ui:VisualElement name="ability-tooltip__separator" />
+            <ui:Label display-tooltip-when-elided="true" name="ability-tooltip__data" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

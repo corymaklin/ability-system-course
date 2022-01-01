@@ -12,4 +12,5 @@
             <ui:Label text="0" display-tooltip-when-elided="true" name="abilities__ability-points-value" />
         </ui:VisualElement>
     </ui:VisualElement>
+    <AbilitySystem.UI.AbilityTooltipElement style="display: none;" />
 </ui:UXML>

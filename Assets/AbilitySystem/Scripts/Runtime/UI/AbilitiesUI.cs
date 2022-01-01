@@ -12,6 +12,7 @@ namespace AbilitySystem.UI
         private VisualElement m_Parent;
         private Button m_CloseButton;
         private Label m_AbilityPoints;
+        private AbilityTooltipElement m_TooltipElement;
 
         private void Awake()
         {
@@ -22,6 +23,7 @@ namespace AbilitySystem.UI
         {
             var root = m_UIDocument.rootVisualElement;
             m_Parent = root.Q("abilities__content");
+            m_TooltipElement = root.Q<AbilityTooltipElement>();
             m_CloseButton = root.Q<Button>("abilities__close-button");
             m_CloseButton.clicked += Hide;
 
@@ -45,6 +47,7 @@ namespace AbilitySystem.UI
                     m_Controller.abilityPoints--;
                 };
                 icon.style.backgroundImage = new StyleBackground(ability.definition.icon);
+                abilityElement.AddManipulator(new AbilityManipulator(ability, m_TooltipElement));
                 m_Parent.Add(abilityElement);
             }
 
