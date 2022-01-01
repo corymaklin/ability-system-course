@@ -40,6 +40,11 @@ namespace MyGame.Scripts
             {
                 m_AbilityController.TryActivateAbility("Regeneration", m_Target);
             }
+            
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                m_AbilityController.TryActivateAbility("Poison", m_Target);
+            }
         }
     }
 }

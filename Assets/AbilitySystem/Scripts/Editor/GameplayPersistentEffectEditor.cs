@@ -78,9 +78,9 @@ namespace AbilitySystem
             return root;
         }
         
-        protected virtual VisualElement CreateTagFieldsGUI()
+        protected override VisualElement CreateTagFieldsGUI()
         {
-            VisualElement root = new VisualElement();
+            VisualElement root = base.CreateTagFieldsGUI();
             root.Add(new PropertyField(serializedObject.FindProperty("m_GrantedTags")));
             return root;
         }

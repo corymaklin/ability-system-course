@@ -17,6 +17,7 @@ namespace AbilitySystem
             
             root.Add(CreateApplicationFieldsGUI());
             root.Add(CreateSpecialEffectFieldsGUI());
+            root.Add(CreateTagFieldsGUI());
             
             return root;
         }
@@ -37,6 +38,13 @@ namespace AbilitySystem
             Button addButton = modifiers.Q<Button>("unity-list-view__add-button");
             addButton.clicked += AddButtonOnClicked;
             root.Add(modifiers);
+            return root;
+        }
+        
+        protected virtual VisualElement CreateTagFieldsGUI()
+        {
+            VisualElement root = new VisualElement();
+            root.Add(new PropertyField(serializedObject.FindProperty("m_Tags")));
             return root;
         }
 

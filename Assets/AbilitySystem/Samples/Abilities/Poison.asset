@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c188cd9d3ac54ecc9340387ff274e367, type: 3}
+  m_Name: Poison
+  m_EditorClassIdentifier: 
+  m_GameplayEffectDefinitions:
+  - {fileID: 11400000, guid: ffdc7c131565758488bb84870fb1e738, type: 2}
+  m_AnimationName: Cast
+  m_Cost: {fileID: 11400000, guid: da09404ad289c064d8b41afb1edd0e68, type: 2}
+  m_Cooldown: {fileID: 11400000, guid: 22d0ae731fd7e044db1d2243737f7256, type: 2}

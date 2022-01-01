@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using AbilitySystem.Scripts.Runtime;
 using Core;
 using UnityEngine;
@@ -7,12 +8,33 @@ namespace AbilitySystem
 {
     public partial class GameplayEffectController
     {
+        private List<VisualEffect> m_StatusEffects = new List<VisualEffect>();
+        private float m_Period = 1f;
+        private int m_Index;
+        private float m_RemainingPeriod;
+
         private Dictionary<SpecialEffectDefinition, int> m_SpecialEffectCountMap =
             new Dictionary<SpecialEffectDefinition, int>();
 
         private Dictionary<SpecialEffectDefinition, VisualEffect> m_SpecialEffectMap =
             new Dictionary<SpecialEffectDefinition, VisualEffect>();
 
+        private void HandleStatusEffects()
+        {
+            if (m_StatusEffects.Count > 1)
+            {
+                m_RemainingPeriod = Mathf.Max(m_RemainingPeriod - Time.deltaTime, 0f);
+
+                if (Mathf.Approximately(m_RemainingPeriod, 0f))
+                {
+                    m_StatusEffects[m_Index].gameObject.SetActive(false);
+                    m_Index = (m_Index + 1) % m_StatusEffects.Count;
+                    m_StatusEffects[m_Index].gameObject.SetActive(true);
+                    m_RemainingPeriod = m_Period;
+                }
+            }
+        }
+        
         private void PlaySpecialEffect(GameplayPersistentEffect effect)
         {
             VisualEffect visualEffect =
@@ -38,6 +60,10 @@ namespace AbilitySystem
                 {
                     m_SpecialEffectCountMap.Add(effect.definition.specialPersistentEffectDefinition, 1);
                     m_SpecialEffectMap.Add(effect.definition.specialPersistentEffectDefinition, visualEffect);
+                    if (effect.definition.tags.Any(tag => tag.StartsWith("status")))
+                    {
+                        m_StatusEffects.Add(visualEffect);
+                    }
                 }
             }
             
@@ -72,6 +98,10 @@ namespace AbilitySystem
                     VisualEffect visualEffect = m_SpecialEffectMap[effect.definition.specialPersistentEffectDefinition];
                     visualEffect.Stop();
                     m_SpecialEffectMap.Remove(effect.definition.specialPersistentEffectDefinition);
+                    if (effect.definition.tags.Any(tag => tag.StartsWith("status")))
+                    {
+                        m_StatusEffects.Remove(visualEffect);
+                    }
                 }
             }
             else
