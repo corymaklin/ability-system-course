@@ -33,5 +33,9 @@ namespace AbilitySystem
         [SerializeField] private SpecialEffectDefinition m_SpecialPersistentEffectDefinition;
         public SpecialEffectDefinition specialPersistentEffectDefinition => m_SpecialPersistentEffectDefinition;
 
+        [SerializeField] private List<string> m_GrantedApplicationImmunityTags;
+
+        public ReadOnlyCollection<string> grantedApplicationImmunityTags =>
+            m_GrantedApplicationImmunityTags.AsReadOnly();
     }
 }

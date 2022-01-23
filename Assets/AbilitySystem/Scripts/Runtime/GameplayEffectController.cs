@@ -65,6 +65,18 @@ namespace AbilitySystem
 
         public bool ApplyGameplayEffectToSelf(GameplayEffect effectToApply)
         {
+            foreach (GameplayPersistentEffect activeEffect in m_ActiveEffects)
+            {
+                foreach (string tag in activeEffect.definition.grantedApplicationImmunityTags)
+                {
+                    if (effectToApply.definition.tags.Contains(tag))
+                    {
+                        Debug.Log($"Immune to {effectToApply.definition.name}");
+                        return false;
+                    }
+                }
+            }
+            
             bool isAdded = true;
             if (effectToApply is GameplayStackableEffect stackableEffect)
             {

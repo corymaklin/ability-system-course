@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8877d092bdf04acfa85d310fb96a1fd0, type: 3}
-  m_Name: Fireball_Damage
+  m_Name: ShieldAura_Cost
   m_EditorClassIdentifier: 
   m_ModifierDefinitions:
-  - {fileID: 7930254314512714218}
-  m_Description: Deals {GameplayEffect.modifiers[0]} health magical damage
+  - {fileID: 1790146552273723485}
+  m_Description: 
   m_SpecialEffectDefinition: {fileID: 0}
-  m_Tags:
-  - damage
+  m_Tags: []
   m_RemoveEffectsWithTags: []
---- !u!114 &7930254314512714218
+--- !u!114 &1790146552273723485
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28,8 +27,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9199767a8e8d471a847611043a9826a6, type: 3}
+  m_Script: {fileID: 11500000, guid: f0a6bf6f6de2403b812ddff9c278c628, type: 3}
   m_Name: Modifier
   m_EditorClassIdentifier: 
-  m_Formula: {fileID: 11400000, guid: 1b9918c7893126e408e162f92299d4c4, type: 2}
-  m_CanCriticalHit: 0
+  m_Formula: {fileID: 11400000, guid: 916e1da98ca79274f936754f3ffd059f, type: 2}
+  m_StatName: Mana
+  m_Type: 0
