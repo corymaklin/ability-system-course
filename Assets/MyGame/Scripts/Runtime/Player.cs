@@ -41,7 +41,7 @@ namespace MyGame.Scripts
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                m_AbilityController.TryActivateAbility("Regeneration", m_Target);
+                m_AbilityController.TryActivateAbility("Cleanse", m_Target);
             }
             
             if (Input.GetKeyDown(KeyCode.R))

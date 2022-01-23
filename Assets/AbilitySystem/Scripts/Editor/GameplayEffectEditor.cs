@@ -67,6 +67,7 @@ namespace AbilitySystem
         {
             VisualElement root = new VisualElement();
             root.Add(new PropertyField(serializedObject.FindProperty("m_Tags")));
+            root.Add(new PropertyField(serializedObject.FindProperty("m_RemoveEffectsWithTags")));
             return root;
         }
 

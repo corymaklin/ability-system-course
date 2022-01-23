@@ -23,5 +23,8 @@ namespace AbilitySystem.Scripts.Runtime
         [SerializeField] private List<string> m_Tags;
         public ReadOnlyCollection<string> tags => m_Tags.AsReadOnly();
 
+        [SerializeField] private List<string> m_RemoveEffectsWithTags;
+        public ReadOnlyCollection<string> removeEffectsWithTags => m_RemoveEffectsWithTags.AsReadOnly();
+
     }
 }

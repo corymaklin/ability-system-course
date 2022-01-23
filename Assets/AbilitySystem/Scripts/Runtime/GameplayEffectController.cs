@@ -117,7 +117,25 @@ namespace AbilitySystem
                     }
                 }
             }
-            
+
+            List<GameplayPersistentEffect> effectsToRemove = new List<GameplayPersistentEffect>();
+
+            foreach (GameplayPersistentEffect activeEffect in m_ActiveEffects)
+            {
+                foreach (string tag in activeEffect.definition.tags)
+                {
+                    if (effectToApply.definition.removeEffectsWithTags.Contains(tag))
+                    {
+                        effectsToRemove.Add(activeEffect);
+                    }
+                }
+            }
+
+            foreach (GameplayPersistentEffect effectToRemove in effectsToRemove)
+            {
+                RemoveActiveGameplayEffect(effectToRemove, true);
+            }
+
             if (effectToApply is GameplayPersistentEffect persistentEffect)
             {
                 if (isAdded)

@@ -34,6 +34,8 @@ MonoBehaviour:
   m_SpecialEffectDefinition: {fileID: 0}
   m_Tags:
   - status
+  - poison
+  m_RemoveEffectsWithTags: []
   m_IsInfinite: 0
   m_DurationFormula: {fileID: 11400000, guid: 8233d350ebf166e4f961f844a261d3fc, type: 2}
   m_IsPeriodic: 1
