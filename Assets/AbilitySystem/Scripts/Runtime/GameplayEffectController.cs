@@ -38,6 +38,8 @@ namespace AbilitySystem
         {
             m_TagController.tagAdded += CheckOngoingTagRequirements;
             m_TagController.tagRemoved += CheckOngoingTagRequirements;
+            m_TagController.tagAdded += CheckRemovalTagRequirements;
+            m_TagController.tagRemoved += CheckRemovalTagRequirements;
             
             m_StatController.initialized += OnStatControllerInitialized;
             if (m_StatController.isInitialized)
@@ -50,6 +52,8 @@ namespace AbilitySystem
         {
             m_TagController.tagAdded -= CheckOngoingTagRequirements;
             m_TagController.tagRemoved -= CheckOngoingTagRequirements;
+            m_TagController.tagAdded -= CheckRemovalTagRequirements;
+            m_TagController.tagRemoved -= CheckRemovalTagRequirements;
         }
 
         private void OnStatControllerInitialized()
@@ -94,6 +98,16 @@ namespace AbilitySystem
             {
                 Debug.Log($"Failed to satisfy application requirements for {effectToApply.definition.name}");
                 return false;
+            }
+
+            if (effectToApply is GameplayPersistentEffect persistentEffectToApply)
+            {
+                if (!m_TagController.SatisfiesRequirements(persistentEffectToApply.definition.persistMustBePresentTags,
+                    persistentEffectToApply.definition.persistMustBeAbsentTags))
+                {
+                    Debug.Log($"Failed to satisfy ongoing requirements for {effectToApply.definition.name}");
+                    return false;
+                }
             }
             
             bool isAdded = true;
@@ -356,6 +370,13 @@ namespace AbilitySystem
                 }
             }
             return true;
+        }
+        
+        private void CheckRemovalTagRequirements(string tag)
+        {
+            m_ActiveEffects.Where(activeEffect => !m_TagController.SatisfiesRequirements(
+                activeEffect.definition.persistMustBePresentTags, activeEffect.definition.persistMustBeAbsentTags
+            )).ToList().ForEach(effect => RemoveActiveGameplayEffect(effect, true));
         }
         
         private void CheckOngoingTagRequirements(string tag)

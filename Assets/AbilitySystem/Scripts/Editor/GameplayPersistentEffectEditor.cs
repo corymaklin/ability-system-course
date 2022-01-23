@@ -92,6 +92,8 @@ namespace AbilitySystem
             root.Add(new PropertyField(serializedObject.FindProperty("m_GrantedApplicationImmunityTags")));
             root.Add(new PropertyField(serializedObject.FindProperty("m_UninhibitedMustBePresentTags")));
             root.Add(new PropertyField(serializedObject.FindProperty("m_UninhibitedMustBeAbsentTags")));
+            root.Add(new PropertyField(serializedObject.FindProperty("m_PersistMustBePresentTags")));
+            root.Add(new PropertyField(serializedObject.FindProperty("m_PersistMustBeAbsentTags")));
             return root;
         }
     }

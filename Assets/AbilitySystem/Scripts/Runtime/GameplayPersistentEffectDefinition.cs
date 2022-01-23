@@ -55,5 +55,12 @@ namespace AbilitySystem
 
         [SerializeField] private GameplayEffectPeriodInhibitionRemovedPolicy m_PeriodicInhibitionPolicy;
         public GameplayEffectPeriodInhibitionRemovedPolicy periodicInhibitionPolicy => m_PeriodicInhibitionPolicy;
+
+        [SerializeField] private List<string> m_PersistMustBePresentTags;
+        public ReadOnlyCollection<string> persistMustBePresentTags => m_PersistMustBePresentTags.AsReadOnly();
+
+        [SerializeField] private List<string> m_PersistMustBeAbsentTags;
+        public ReadOnlyCollection<string> persistMustBeAbsentTags => m_PersistMustBeAbsentTags.AsReadOnly();
+
     }
 }

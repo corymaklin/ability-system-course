@@ -41,7 +41,7 @@ namespace MyGame.Scripts
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                m_AbilityController.TryActivateAbility("Combustion", m_Target);
+                m_AbilityController.TryActivateAbility("FrostAura", m_Target);
             }
             
             if (Input.GetKeyDown(KeyCode.R))

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea9c49bd614446aafb28b0662ca7046, type: 3}
+  m_Name: FrostAura_Cooldown
+  m_EditorClassIdentifier: 
+  m_ModifierDefinitions: []
+  m_ConditionalEffects: []
+  m_Description: 
+  m_SpecialEffectDefinition: {fileID: 0}
+  m_Tags: []
+  m_RemoveEffectsWithTags: []
+  m_ApplicationMustBePresentTags: []
+  m_ApplicationMustBeAbsentTags: []
+  m_IsInfinite: 0
+  m_DurationFormula: {fileID: 11400000, guid: 5a45ca565f2d31e459e389b0264f5f56, type: 2}
+  m_IsPeriodic: 0
+  m_Period: 0
+  m_ExecutePeriodicEffectOnApplication: 0
+  m_GrantedTags: []
+  m_SpecialPersistentEffectDefinition: {fileID: 0}
+  m_GrantedApplicationImmunityTags: []
+  m_UninhibitedMustBePresentTags: []
+  m_UninhibitedMustBeAbsentTags: []
+  m_PeriodicInhibitionPolicy: 0
+  m_PersistMustBePresentTags: []
+  m_PersistMustBeAbsentTags: []

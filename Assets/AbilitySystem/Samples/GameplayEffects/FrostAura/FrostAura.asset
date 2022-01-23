@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e692b44e1f54ccc8de13ba0201234e4, type: 3}
+  m_Name: FrostAura
+  m_EditorClassIdentifier: 
+  m_ModifierDefinitions:
+  - {fileID: 6786057188346455753}
+  m_ConditionalEffects: []
+  m_Description: 
+  m_SpecialEffectDefinition: {fileID: 0}
+  m_Tags: []
+  m_RemoveEffectsWithTags: []
+  m_ApplicationMustBePresentTags: []
+  m_ApplicationMustBeAbsentTags: []
+  m_IsInfinite: 0
+  m_DurationFormula: {fileID: 11400000, guid: 60c91ef4a1ae80d48934f242a268618d, type: 2}
+  m_IsPeriodic: 0
+  m_Period: 0
+  m_ExecutePeriodicEffectOnApplication: 0
+  m_GrantedTags: []
+  m_SpecialPersistentEffectDefinition: {fileID: 11400000, guid: 3e94ab5adfdbddc4a99a3f11b033180c, type: 2}
+  m_GrantedApplicationImmunityTags: []
+  m_UninhibitedMustBePresentTags: []
+  m_UninhibitedMustBeAbsentTags: []
+  m_PeriodicInhibitionPolicy: 0
+  m_PersistMustBePresentTags: []
+  m_PersistMustBeAbsentTags:
+  - burning
+  m_OverflowEffects: []
+  m_DenyOverflowApplication: 0
+  m_ClearStackOnOverflow: 0
+  m_StackLimitCount: 1
+  m_StackDurationRefreshPolicy: 1
+  m_StackPeriodResetPolicy: 0
+  m_StackExpirationPolicy: 0
+--- !u!114 &6786057188346455753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a6bf6f6de2403b812ddff9c278c628, type: 3}
+  m_Name: Modifier
+  m_EditorClassIdentifier: 
+  m_Formula: {fileID: 11400000, guid: 60c91ef4a1ae80d48934f242a268618d, type: 2}
+  m_StatName: MagicalDefense
+  m_Type: 0
