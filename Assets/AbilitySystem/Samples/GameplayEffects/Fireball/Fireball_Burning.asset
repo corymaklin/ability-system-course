@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e692b44e1f54ccc8de13ba0201234e4, type: 3}
+  m_Name: Fireball_Burning
+  m_EditorClassIdentifier: 
+  m_ModifierDefinitions:
+  - {fileID: 9033097401210039444}
+  m_ConditionalEffects: []
+  m_Description: 
+  m_SpecialEffectDefinition: {fileID: 0}
+  m_Tags: []
+  m_RemoveEffectsWithTags: []
+  m_IsInfinite: 0
+  m_DurationFormula: {fileID: 11400000, guid: 2d66550291b44c34ea1ba948e87a0531, type: 2}
+  m_IsPeriodic: 1
+  m_Period: 1
+  m_ExecutePeriodicEffectOnApplication: 0
+  m_GrantedTags: []
+  m_SpecialPersistentEffectDefinition: {fileID: 11400000, guid: 0ed08f65355873845b0cc84824ae28c5, type: 2}
+  m_GrantedApplicationImmunityTags: []
+  m_OverflowEffects: []
+  m_DenyOverflowApplication: 0
+  m_ClearStackOnOverflow: 0
+  m_StackLimitCount: 1
+  m_StackDurationRefreshPolicy: 1
+  m_StackPeriodResetPolicy: 0
+  m_StackExpirationPolicy: 0
+--- !u!114 &9033097401210039444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9199767a8e8d471a847611043a9826a6, type: 3}
+  m_Name: Modifier
+  m_EditorClassIdentifier: 
+  m_Formula: {fileID: 11400000, guid: 397c5724f4daed64493125e9eea9ac86, type: 2}
+  m_CanCriticalHit: 0

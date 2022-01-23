@@ -130,6 +130,15 @@ namespace AbilitySystem
                 }
             }
 
+            foreach (GameplayEffectDefinition conditionalEffectDefinition in effectToApply.definition.conditionalEffects)
+            {
+                EffectTypeAttribute attribute = conditionalEffectDefinition.GetType().GetCustomAttributes(true)
+                    .OfType<EffectTypeAttribute>()
+                    .FirstOrDefault();
+                GameplayEffect conditionalEffect = Activator.CreateInstance(attribute.type, conditionalEffectDefinition, effectToApply, effectToApply.instigator) as GameplayEffect;
+                ApplyGameplayEffectToSelf(conditionalEffect);
+            }
+
             List<GameplayPersistentEffect> effectsToRemove = new List<GameplayPersistentEffect>();
 
             foreach (GameplayPersistentEffect activeEffect in m_ActiveEffects)

@@ -44,9 +44,9 @@ namespace AbilitySystem
             return root;
         }
 
-        protected VisualElement CreateGameplayEffectFieldsGUI()
+        protected override VisualElement CreateGameplayEffectFieldsGUI()
         {
-            VisualElement root = new VisualElement();
+            VisualElement root = base.CreateGameplayEffectFieldsGUI();
 
             ListView overflowGameplayEffects = new ListView
             {

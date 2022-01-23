@@ -22,6 +22,7 @@ namespace AbilitySystem
             
             root.Add(CreateCoreFieldsGUI());
             root.Add(CreateApplicationFieldsGUI());
+            root.Add(CreateGameplayEffectFieldsGUI());
             root.Add(CreateSpecialEffectFieldsGUI());
             root.Add(CreateTagFieldsGUI());
             
@@ -41,6 +42,24 @@ namespace AbilitySystem
             description.Bind(serializedObject);
             description.AddToClassList("description");
             root.Add(description);
+            return root;
+        }
+
+        protected virtual VisualElement CreateGameplayEffectFieldsGUI()
+        {
+            VisualElement root = new VisualElement();
+
+            ListView listView = new ListView()
+            {
+                bindingPath = "m_ConditionalEffects",
+                virtualizationMethod = CollectionVirtualizationMethod.DynamicHeight,
+                reorderable = true,
+                showFoldoutHeader = true,
+                showAddRemoveFooter = true,
+                headerTitle = "Conditional Effects"
+            };
+            listView.Bind(serializedObject);
+            root.Add(listView);
             return root;
         }
 
