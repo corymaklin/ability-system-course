@@ -36,11 +36,20 @@ namespace AbilitySystem
 
         private void OnEnable()
         {
+            m_TagController.tagAdded += CheckOngoingTagRequirements;
+            m_TagController.tagRemoved += CheckOngoingTagRequirements;
+            
             m_StatController.initialized += OnStatControllerInitialized;
             if (m_StatController.isInitialized)
             {
                 OnStatControllerInitialized();
             }
+        }
+
+        private void OnDisable()
+        {
+            m_TagController.tagAdded -= CheckOngoingTagRequirements;
+            m_TagController.tagRemoved -= CheckOngoingTagRequirements;
         }
 
         private void OnStatControllerInitialized()
@@ -67,12 +76,15 @@ namespace AbilitySystem
         {
             foreach (GameplayPersistentEffect activeEffect in m_ActiveEffects)
             {
-                foreach (string tag in activeEffect.definition.grantedApplicationImmunityTags)
+                if (!activeEffect.isInhibited)
                 {
-                    if (effectToApply.definition.tags.Contains(tag))
+                    foreach (string tag in activeEffect.definition.grantedApplicationImmunityTags)
                     {
-                        Debug.Log($"Immune to {effectToApply.definition.name}");
-                        return false;
+                        if (effectToApply.definition.tags.Contains(tag))
+                        {
+                            Debug.Log($"Immune to {effectToApply.definition.name}");
+                            return false;
+                        }
                     }
                 }
             }
@@ -183,13 +195,15 @@ namespace AbilitySystem
         private void AddGameplayEffect(GameplayPersistentEffect effect)
         {
             m_ActiveEffects.Add(effect);
-            AddUninhibitedEffects(effect);
+            
+            CheckOngoingTagRequirements(effect);
 
             if (effect.definition.isPeriodic)
             {
                 if (effect.definition.executePeriodicEffectOnApplication)
                 {
-                    ExecuteGameplayEffect(effect);
+                    if (!effect.isInhibited)
+                        ExecuteGameplayEffect(effect);
                 }
             }
         }
@@ -197,7 +211,8 @@ namespace AbilitySystem
         private void RemoveActiveGameplayEffect(GameplayPersistentEffect effect, bool prematureRemoval)
         {
             m_ActiveEffects.Remove(effect);
-            RemoveUninhibitedEffects(effect);
+            if (!effect.isInhibited)
+                RemoveUninhibitedEffects(effect);
         }
 
         private void RemoveUninhibitedEffects(GameplayPersistentEffect effect)
@@ -264,7 +279,8 @@ namespace AbilitySystem
 
                     if (Mathf.Approximately(activeEffect.remainingPeriod, 0f))
                     {
-                        ExecuteGameplayEffect(activeEffect);
+                        if (!activeEffect.isInhibited)
+                            ExecuteGameplayEffect(activeEffect);
                         activeEffect.remainingPeriod = activeEffect.definition.period;
                     }
                 }
@@ -340,6 +356,49 @@ namespace AbilitySystem
                 }
             }
             return true;
+        }
+        
+        private void CheckOngoingTagRequirements(string tag)
+        {
+            foreach (GameplayPersistentEffect activeEffect in m_ActiveEffects)
+            {
+                CheckOngoingTagRequirements(activeEffect);
+            }
+        }
+
+        private void CheckOngoingTagRequirements(GameplayPersistentEffect effect)
+        {
+            bool shouldBeInhibited = !m_TagController.SatisfiesRequirements(
+                effect.definition.uninhibitedMustBePresentTags, effect.definition.uninhibitedMustBeAbsentTags);
+
+            if (effect.isInhibited != shouldBeInhibited)
+            {
+                effect.isInhibited = shouldBeInhibited;
+
+                if (effect.isInhibited)
+                {
+                    RemoveUninhibitedEffects(effect);
+                }
+                else
+                {
+                    if (effect.definition.isPeriodic)
+                    {
+                        switch (effect.definition.periodicInhibitionPolicy)
+                        {
+                            case GameplayEffectPeriodInhibitionRemovedPolicy.ResetPeriod:
+                                effect.remainingPeriod = effect.definition.period;
+                                break;
+                            case GameplayEffectPeriodInhibitionRemovedPolicy.ExecuteAndResetPeriod:
+                                ExecuteGameplayEffect(effect);
+                                effect.remainingPeriod = effect.definition.period;
+                                break;
+                            case GameplayEffectPeriodInhibitionRemovedPolicy.NeverReset:
+                                break;
+                        }
+                    }
+                    AddUninhibitedEffects(effect);
+                }
+            }
         }
     }
 }

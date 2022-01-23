@@ -6,6 +6,13 @@ using UnityEngine;
 
 namespace AbilitySystem
 {
+    public enum GameplayEffectPeriodInhibitionRemovedPolicy
+    {
+        NeverReset,
+        ResetPeriod,
+        ExecuteAndResetPeriod
+    }
+    
     [EffectType(typeof(GameplayPersistentEffect))]
     [CreateAssetMenu(fileName = "GameplayPersistentEffect", menuName = "AbilitySystem/Effect/GameplayPersistentEffect", order = 0)]
     public class GameplayPersistentEffectDefinition : GameplayEffectDefinition
@@ -37,5 +44,16 @@ namespace AbilitySystem
 
         public ReadOnlyCollection<string> grantedApplicationImmunityTags =>
             m_GrantedApplicationImmunityTags.AsReadOnly();
+
+
+        [SerializeField] private List<string> m_UninhibitedMustBePresentTags;
+        public ReadOnlyCollection<string> uninhibitedMustBePresentTags => m_UninhibitedMustBePresentTags.AsReadOnly();
+
+        [SerializeField] private List<string> m_UninhibitedMustBeAbsentTags;
+        public ReadOnlyCollection<string> uninhibitedMustBeAbsentTags => m_UninhibitedMustBeAbsentTags.AsReadOnly();
+
+
+        [SerializeField] private GameplayEffectPeriodInhibitionRemovedPolicy m_PeriodicInhibitionPolicy;
+        public GameplayEffectPeriodInhibitionRemovedPolicy periodicInhibitionPolicy => m_PeriodicInhibitionPolicy;
     }
 }

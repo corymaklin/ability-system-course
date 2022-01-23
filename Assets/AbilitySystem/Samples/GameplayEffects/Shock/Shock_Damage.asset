@@ -14,9 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ModifierDefinitions:
   - {fileID: 8005163995718701456}
+  m_ConditionalEffects: []
   m_Description: Deals {GameplayEffect.modifiers[0]} health magical damage
   m_SpecialEffectDefinition: {fileID: 11400000, guid: dbe196cd7eacc8848833512f5024ee36, type: 2}
-  m_Tags: []
+  m_Tags:
+  - damage
+  - magical
+  m_RemoveEffectsWithTags: []
+  m_ApplicationMustBePresentTags: []
+  m_ApplicationMustBeAbsentTags: []
 --- !u!114 &8005163995718701456
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position: {x: 522, y: 253}
   guid: 958ced813a4acd842827afbbf89893cd
-  factorA: {fileID: 4046091498402417064}
-  factorB: {fileID: 1563425142515497697}
+  factorA: {fileID: 0}
+  factorB: {fileID: 0}
 --- !u!114 &-42660352459306790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30,7 +30,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position: {x: 735, y: 272.76}
   guid: e23745f16c78da94f8b260b74789bf7e
-  child: {fileID: -5302467266586391926}
+  child: {fileID: 1563425142515497697}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,8 +47,6 @@ MonoBehaviour:
   nodes:
   - {fileID: -42660352459306790}
   - {fileID: 1563425142515497697}
-  - {fileID: -5302467266586391926}
-  - {fileID: 4046091498402417064}
 --- !u!114 &1563425142515497697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc85815fbb647f6ad4f2ac539232d6a, type: 3}
   m_Name: Scalar
   m_EditorClassIdentifier: 
-  position: {x: 333, y: 325}
+  position: {x: 416, y: 372}
   guid: 2672f303a347d8443af3b68bdfcef073
   m_Value: -10
 --- !u!114 &4046091498402417064
