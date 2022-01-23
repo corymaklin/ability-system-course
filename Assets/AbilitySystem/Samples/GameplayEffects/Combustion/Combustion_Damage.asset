@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8936257307159003638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9199767a8e8d471a847611043a9826a6, type: 3}
+  m_Name: Modifier
+  m_EditorClassIdentifier: 
+  m_Formula: {fileID: 11400000, guid: d56fb2a211ac0de42b82fc68b30d00ff, type: 2}
+  m_CanCriticalHit: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8877d092bdf04acfa85d310fb96a1fd0, type: 3}
+  m_Name: Combustion_Damage
+  m_EditorClassIdentifier: 
+  m_ModifierDefinitions:
+  - {fileID: -8936257307159003638}
+  m_ConditionalEffects: []
+  m_Description: 
+  m_SpecialEffectDefinition: {fileID: 0}
+  m_Tags: []
+  m_RemoveEffectsWithTags:
+  - burning
+  m_ApplicationMustBePresentTags:
+  - burning
+  m_ApplicationMustBeAbsentTags: []

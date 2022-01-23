@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1283679301964383030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d19ffb4285114742bc03537d53b2b4f2, type: 3}
+  m_Name: ResultNode
+  m_EditorClassIdentifier: 
+  position: {x: 509.52002, y: 354.88}
+  guid: 9027f3b16dbef644d96e02509f02f66f
+  child: {fileID: 4036279986553010997}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96dedc780d9e481ea58ff91b36bc723b, type: 3}
+  m_Name: Combustion_HealthModifierMagnitude
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: -1283679301964383030}
+  nodes:
+  - {fileID: -1283679301964383030}
+  - {fileID: 4036279986553010997}
+--- !u!114 &4036279986553010997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc85815fbb647f6ad4f2ac539232d6a, type: 3}
+  m_Name: Scalar
+  m_EditorClassIdentifier: 
+  position: {x: 270.32, y: 379}
+  guid: 4d2323d7173692d41b7ed950d95fe76e
+  m_Value: -40

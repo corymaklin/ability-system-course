@@ -76,6 +76,13 @@ namespace AbilitySystem
                     }
                 }
             }
+
+            if (!m_TagController.SatisfiesRequirements(effectToApply.definition.applicationMustBePresentTags,
+                effectToApply.definition.applicationMustBeAbsentTags))
+            {
+                Debug.Log($"Failed to satisfy application requirements for {effectToApply.definition.name}");
+                return false;
+            }
             
             bool isAdded = true;
             if (effectToApply is GameplayStackableEffect stackableEffect)

@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96dedc780d9e481ea58ff91b36bc723b, type: 3}
+  m_Name: Combustion_ManaModifierMagnitude
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 3477017006334366664}
+  nodes:
+  - {fileID: 3477017006334366664}
+  - {fileID: 8680429400670737213}
+--- !u!114 &3477017006334366664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d19ffb4285114742bc03537d53b2b4f2, type: 3}
+  m_Name: ResultNode
+  m_EditorClassIdentifier: 
+  position: {x: 706.24, y: 280.36}
+  guid: 2e10b0e42aaaa0d4ca2881618ef855cf
+  child: {fileID: 8680429400670737213}
+--- !u!114 &8680429400670737213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc85815fbb647f6ad4f2ac539232d6a, type: 3}
+  m_Name: Scalar
+  m_EditorClassIdentifier: 
+  position: {x: 354, y: 300}
+  guid: 0bf0b5af44b17204abb0627674d3631b
+  m_Value: -13

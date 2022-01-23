@@ -17,14 +17,18 @@ MonoBehaviour:
   m_ConditionalEffects: []
   m_Description: 
   m_SpecialEffectDefinition: {fileID: 0}
-  m_Tags: []
+  m_Tags:
+  - burning
   m_RemoveEffectsWithTags: []
+  m_ApplicationMustBePresentTags: []
+  m_ApplicationMustBeAbsentTags: []
   m_IsInfinite: 0
   m_DurationFormula: {fileID: 11400000, guid: 2d66550291b44c34ea1ba948e87a0531, type: 2}
   m_IsPeriodic: 1
   m_Period: 1
   m_ExecutePeriodicEffectOnApplication: 0
-  m_GrantedTags: []
+  m_GrantedTags:
+  - burning
   m_SpecialPersistentEffectDefinition: {fileID: 11400000, guid: 0ed08f65355873845b0cc84824ae28c5, type: 2}
   m_GrantedApplicationImmunityTags: []
   m_OverflowEffects: []
